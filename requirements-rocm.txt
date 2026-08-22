@@ -1,0 +1,40 @@
+# Pinned GPU stack for the Strix Halo box (gfx1151, Windows, Python 3.11).
+#
+#   .\.venv\Scripts\python.exe -m pip install -r requirements-rocm.txt
+#
+# Why pin a nightly at all: these are AMD Preview-tier builds that change daily, and this project
+# reports bits-per-parameter numbers that have to stay comparable across months of work. An
+# unannounced kernel change between two runs is exactly the kind of thing that turns a real result
+# into an unreproducible one. Recorded once the GPU started producing numbers worth trusting
+# (2026-08-01) — see experiments/2026-07-31_env-validation/notes.md.
+#
+# numpy is pinned here for a *scientific*, not packaging, reason: NumPy does not guarantee
+# `Generator` bit-stream stability across versions, so the same corpus seed can produce a
+# different world on a different NumPy. `KnowledgeCorpus.fingerprint()` will catch the drift, but
+# pinning stops it happening. If you change this line, expect fingerprints to move.
+#
+# Retention caveat: the nightly index currently keeps ~144 builds (back to 2025-10-11), so these
+# wheels will eventually be pruned. Before that matters, either archive the wheels
+# (`pip download -r requirements-rocm.txt -d <somewhere-outside-git>`) or move to a newer pin
+# deliberately. Do NOT let a pruned pin silently become "whatever pip resolves today".
+#
+# Upgrade protocol: bump these versions, re-run `python scripts/smoke_gpu.py`, re-verify that
+# TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1 is still numerically sound (it is experimental), and
+# record the new numbers under experiments/ before trusting any result produced on it.
+#
+# Note this file is for the *host*. CI installs CPU torch from PyPI instead — containers cannot
+# reach the iGPU, so pinning the ROCm stack there would buy nothing.
+
+--index-url https://rocm.nightlies.amd.com/v2/gfx1151/
+
+torch==2.12.0a0+rocm7.13.0a20260313
+torchvision==0.26.0a0+rocm7.13.0a20260313
+torchaudio==2.11.0a0+rocm7.13.0a20260313
+
+# Pulled in by torch, pinned so the whole ROCm runtime moves as one unit.
+rocm==7.13.0a20260313
+rocm-sdk-core==7.13.0a20260313
+rocm-sdk-libraries-gfx1151==7.13.0a20260313
+
+# See the note above: this pin is what keeps generated corpora reproducible.
+numpy==2.4.3

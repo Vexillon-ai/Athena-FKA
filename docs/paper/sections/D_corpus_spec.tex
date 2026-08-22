@@ -1,0 +1,34 @@
+\section{Corpus Generator and Entropy Accounting}
+\label{app:corpus}
+
+\paragraph{Value spaces own their information content.} For every relation,
+$\mathrm{bits}(v) = -\log_2 P(v)$ under the distribution the generator samples from. Adding a
+relation requires adding its \texttt{ValueSpace}; no bit count is hard-coded anywhere. This is the
+property that makes bits-per-parameter a measurement rather than an estimate.
+
+\paragraph{Vocabularies depend on the schema only.} They never depend on the seed, so entropies stay
+comparable across seeds. Syllable tables must concatenate injectively, and the constructor asserts
+it.
+
+\paragraph{Names are keys, not facts.} Entity names are excluded from the corpus's information
+content. This is correct for \emph{scoring} and was wrong for \emph{sizing}: the weights must hold a
+key in order to use it, so a corpus sized by scored entropy alone ran 1.44$\times$ over capacity
+while the keys-ignored calculation read exactly 1.00$\times$. The rule that follows --- \emph{ask
+what the weights must hold, not what the evaluator will count} --- holds except when addressing is
+free, which is the one thing this study exists to say it is not.
+
+\paragraph{Probes use one canonical question per relation.} Statements use many
+paraphrases, so a recall failure is attributable to storage rather than to phrasing.
+
+\paragraph{Two fingerprints, because one cannot see what the other pins.}
+\texttt{corpus.fingerprint()} hashes the config, entity name \emph{indices}, values, bits and split
+masks: it pins the \emph{world} and is structurally blind to every rendered character.
+\texttt{surface\_fingerprint()} hashes the tokenizer vocabulary, every template, and a deterministic
+\emph{rendered sample} --- the load-bearing term, because templates alone miss a change in how
+subjects are constructed. Three surfaces share one world hash and produce three surface hashes.
+
+\paragraph{Entropy coupling.} The \texttt{works\_with} value space \emph{is} the entity set, so its
+per-fact entropy grows as $\log_2 N$: 9.15 bits per fact at $N = 2{,}000$ and \textbf{11.66} at
+$N = 2$M. Address cost grows as $2.38\log_2 N$ and corpus entropy as $0.25\log_2 N$, so the two very
+nearly cancel and the validity horizon moves from ${\sim}2.4$M to ${\sim}8.85\times10^{13}$ entities
+(Proposition~\ref{prop:entropy}).

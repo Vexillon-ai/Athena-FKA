@@ -1,0 +1,119 @@
+{
+  "title": "Knowledge stored per parameter, against corpus size",
+  "n_annotation_rule": "Every point is plotted at the N it was MEASURED at. No point is extrapolated; the dense side's extrapolation to N=2M was attempted and refused (M5 5.146).",
+  "dense": {
+    "surface_primary": "syllable",
+    "n_seeds": {
+      "1M": 10,
+      "10M": 5
+    },
+    "points": [
+      {
+        "params": 941312,
+        "label": "1M",
+        "K_star_P": 16971,
+        "bracket": [
+          16000,
+          18000
+        ],
+        "params_per_key": 55.5,
+        "sigma_acc_at_bracket": [
+          13.15,
+          6.79
+        ],
+        "P_at_bracket": [
+          0.7,
+          0.3
+        ]
+      },
+      {
+        "params": 10220160,
+        "label": "10M",
+        "K_star_P": 28950,
+        "bracket": [
+          28000,
+          32000
+        ],
+        "params_per_key": 353.0,
+        "sigma_acc_at_bracket": [
+          33.1,
+          12.73
+        ],
+        "P_at_bracket": [
+          0.6,
+          0.2
+        ]
+      }
+    ],
+    "alpha": {
+      "point": 0.224,
+      "interval": [
+        0.185,
+        0.291
+      ],
+      "edge_provenance": {
+        "lower": "1M bracket, n=10 both edges",
+        "upper": "10M bracket, n=5 both edges"
+      }
+    },
+    "surface_factor": {
+      "value": 1.17,
+      "units": "params/key",
+      "measured_at": "1M",
+      "range": "2.00-4.15 tokens/name at matched vocabulary and share",
+      "K_star_BPE": 19900,
+      "bracket": [
+        18000,
+        22000
+      ]
+    },
+    "best_bits_per_param_any_arm": 0.298,
+    "literature_ceiling_bits_per_param": 2.0,
+    "load_at_failure": "under 0.19x of theoretical bit capacity"
+  },
+  "fka": {
+    "points": [
+      {
+        "n_entities": 2000000,
+        "n_facts": 8000000,
+        "bits_per_entity": 52,
+        "bits_per_bit_int8_marginal": 0.4387,
+        "bits_per_bit_int8_amortised": 0.3938,
+        "bits_per_param_marginal": 3.51,
+        "bits_per_param_amortised": 3.15,
+        "addressability": 1.0,
+        "compression": "42.7x"
+      }
+    ],
+    "seed_spread": {
+      "n_seeds": 10,
+      "operating_point_sigma": 0.0,
+      "transition_sigma": 3.2
+    }
+  },
+  "reconciliation": {
+    "our_params_per_key_syllable": 55.5,
+    "our_params_per_key_bpe": 47.3,
+    "reference_params_per_key": 25,
+    "gap": 1.89,
+    "carriers": {
+      "amortisation": 2.0,
+      "surface": 1.17,
+      "product": 2.35
+    },
+    "verdict": "RECONCILED",
+    "residual": null
+  },
+  "refused_extrapolation": {
+    "target_n_entities": 2000000,
+    "power_form_params": {
+      "alpha_0.291": 13000000000000.0,
+      "alpha_0.224": 1700000000000000.0,
+      "alpha_0.185": 1.4e+17
+    },
+    "log_form_params": "10^177",
+    "disagreement_orders_of_magnitude": 162,
+    "measured_decade_orders": 1.0,
+    "decision": "NOT PLOTTED. Both forms fit with zero residual; the undetermined choice changes the answer by 162 orders of magnitude."
+  }
+}

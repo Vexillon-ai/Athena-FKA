@@ -1,0 +1,41 @@
+\section{The Provenance Ledger}
+\label{app:ledger}
+
+\begin{table}[h]\centering\small
+\caption{Headline numbers with their scope and record. Reproduced from M5 \S5.147.}
+\input{tables/T1_headline}
+\end{table}
+
+\noindent Every number in the paper resolves through
+\texttt{docs/paper/figures/\_artifacts.py}, which loads persisted artifacts and carries an address
+--- artifact path plus decision-record section --- for each value.
+\texttt{docs/paper/figures/resolve\_slots.py} prints the full resolution and cross-checks the
+abstract against this ledger.
+
+\subsection*{Not quoted}
+
+\begin{table}[h]\centering\small
+\caption{What the record could be read to support, and which we decline to claim.}
+\input{tables/T6_not_quoted}
+\end{table}
+
+\subsection*{Resolved phrasing items}
+
+Three phrasing discrepancies between the authored abstract and this ledger were found by the
+cross-check. All three are now \textbf{resolved in the abstract's wording}, each under a convention
+this paper already applies elsewhere rather than by changing a measurement.
+
+\begin{enumerate}
+\item \textbf{Addressability now carries depth class and load}, per Table~\ref{tab:fka}. The
+abstract quoted ``99.9\% addressability on entities never seen during training'' --- one phrase
+spanning two statistics at two loads. The $N = 2$M headline (99.9\%) and the never-supervised split
+at $N = 2{,}000$ (99.8\% pooled; 99.9\% direct, 99.6\% composed) are now quoted separately, each
+with its $N$. This is the stale-constant rule applied to a sentence rather than to a figure.
+\item \textbf{The rehabilitation count is the length of \S\ref{sec:dense}'s enumerated list} ---
+four, of which three were chosen and one forced. M5 \S5.8.1 describes the same work as ``five, four
+chosen and one forced'' by counting the surface arc as two items. The paper uses one convention
+throughout rather than two counts of one thing.
+\item \textbf{Edit locality carries its measured configuration}, per the $N$-annotation rule: the
+measurement is at $N = 2{,}000$ and the abstract now says so. No separate $N = 2$M edit-locality
+measurement exists, and none is implied.
+\end{enumerate}

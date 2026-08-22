@@ -1,0 +1,86 @@
+{
+  "_source": "M5 §5.147, THE LEDGER, VERBATIM — experiments/2026-08-02_dense-exposure-ladder/notes.md",
+  "_why": "F8 previously typed these bracket key counts into the figure script, which is exactly the defect _artifacts.py exists to make impossible. They are transcribed here once, with the ledger's own wording, so the figure loads them like every other number.",
+  "_alpha_rule": "alpha_lo = ln(K10_lo / K1_hi) / ln(P10 / P1); alpha_hi = ln(K10_hi / K1_lo) / ln(P10 / P1). Reconstructed from the brackets, then checked against the alpha values the ledger states directly (see alpha_checkpoints).",
+  "refinements": [
+    {
+      "n": 1,
+      "label": "object redefinition",
+      "ledger_label": "object redefinition: accuracy-crossing -> P-crossing",
+      "what_moved": "K*_P(1M) 21,451 -> 19,596",
+      "verdict": "unmoved",
+      "bracket_1M": [16000, 24000],
+      "bracket_10M": [28000, 32000],
+      "is_alpha_input": true
+    },
+    {
+      "n": 2,
+      "label": "20,000 arm",
+      "ledger_label": "20,000 arm",
+      "what_moved": "bracket [16k, 20k]; alpha_min 0.065 -> 0.141",
+      "verdict": "unmoved",
+      "bracket_1M": [16000, 20000],
+      "bracket_10M": [28000, 32000],
+      "is_alpha_input": true
+    },
+    {
+      "n": 3,
+      "label": "18,000 arm",
+      "ledger_label": "18,000 arm",
+      "what_moved": "anchor rose 17,889 -> 18,480; alpha_max 0.291 -> 0.241",
+      "verdict": "unmoved",
+      "bracket_1M": [18000, 20000],
+      "bracket_10M": [28000, 32000],
+      "is_alpha_input": true
+    },
+    {
+      "n": 4,
+      "label": "5-seed 10M cliff",
+      "ledger_label": "5-seed 10M cliff",
+      "what_moved": "K*_P(10M) 29,933 -> 28,950",
+      "verdict": "unmoved",
+      "bracket_1M": [18000, 20000],
+      "bracket_10M": [28000, 32000],
+      "is_alpha_input": true
+    },
+    {
+      "n": 5,
+      "label": "n=3 -> n=10 at 1M",
+      "ledger_label": "n=3 -> n=10 at 1M",
+      "what_moved": "P(18,000) 2/3 -> 0.30; interval got WIDER",
+      "verdict": "unmoved",
+      "bracket_1M": [16000, 18000],
+      "bracket_10M": [28000, 32000],
+      "is_alpha_input": true
+    },
+    {
+      "n": 6,
+      "label": "16,000 to n=10",
+      "ledger_label": "16,000 to n=10",
+      "what_moved": "P 3/3 -> 0.70; K*_P(1M) -> 16,971",
+      "verdict": "unmoved",
+      "bracket_1M": [16000, 18000],
+      "bracket_10M": [28000, 32000],
+      "is_alpha_input": true
+    },
+    {
+      "n": 7,
+      "label": "BPE control + bracket",
+      "ledger_label": "BPE control + bracket",
+      "what_moved": "surface factor 1.17x; RECONCILED",
+      "verdict": "unmoved",
+      "bracket_1M": [16000, 18000],
+      "bracket_10M": [28000, 32000],
+      "is_alpha_input": false,
+      "not_an_alpha_input_because": "K*_BPE is a SURFACE measurement at 1M. It enters the reconciliation (params/key), never the 1M/10M ratio alpha is computed from, so alpha is unchanged by construction rather than by measurement."
+    }
+  ],
+  "alpha_checkpoints": {
+    "_why": "The only alpha values the ledger states outright. The bracket reconstruction must reproduce each one, or the transcription is wrong.",
+    "r2_alpha_min_after": 0.141,
+    "r3_alpha_max_after": 0.241,
+    "r1_alpha_min_before": 0.065,
+    "r3_alpha_max_before": 0.291,
+    "final_interval": [0.185, 0.291]
+  }
+}

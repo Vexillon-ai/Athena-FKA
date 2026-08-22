@@ -1,0 +1,127 @@
+\section{Threats to Validity and the Ledger}
+\label{sec:threats}
+
+\subsection{The instrument-failure taxonomy}
+
+\begin{table}[t]\centering\small
+\caption{Settings that disable the test. Each is legal, documented and deliberate, and each removes
+the thing the experiment was built to detect. Every species has an instance in this study.}
+\label{tab:taxonomy}
+\input{tables/T4_taxonomy}
+\end{table}
+
+Table~\ref{tab:taxonomy} collects six species. They share a shape: \emph{a knob whose setting makes
+the task satisfiable by a shortcut, where the shortcut is invisible in every statistic the run
+reports.} Nothing errors, nothing is mis-computed, and the number that comes out is a real
+measurement --- of a system that was not being asked the question.
+
+Two are worth stating in full because they cost the most here.
+
+\paragraph{The capacity-graded leak (species 2).} A finite set of data orderings is memorisable by a
+model large enough, and \emph{it reports a lower loss for it}. The catastrophic form is
+threshold-like and arrives disguised as a scaling result; the mild form is continuous and taxes
+every model that does \emph{not} memorise, because repeated orderings put each fact in the same
+context neighbourhood every time. The corollary is the expensive half: \textbf{proving the small
+model did not cheat does not show it was unaffected}, and here the small model was 9.7 points worse
+for it.
+
+\paragraph{The unpriced adjudicator (species 5).} It hides inside a rule already being followed. Our
+non-monotonicity flag \emph{had} a verified-red test; the threshold it fired at had neither test nor
+measurement, and it adjudicated every ``within noise'' call in the track while being wrong by
+3--26$\times$ depending on regime. \textbf{The smell is a capitalised constant that no experiment
+produced.} Its misfire was worth more than a decade of correct fires: chasing it produced the
+stochastic transition, the regime-indexed bands, and the $P$-curve redefinition of the measured
+object --- all recoverable in an afternoon, and only because replication machinery already existed.
+
+\paragraph{The cost model.} Four instrument defects in this study were caught by a test and two by a
+run. \textbf{The asymmetry is not that tests are cheaper to execute --- it is that they fail before
+the result exists, so there is nothing to un-believe.} The ordering leak cost a voided five-arm
+sweep and a retracted headline; a missing \texttt{required\_chars} argument, which would have made
+every fact unlearnable and read as a capacity result, cost five lines.
+
+\subsection{The threshold audit}
+
+\begin{table}[t]\centering\small
+\caption{Every numeric constant in an adjudication path, classified by provenance: what measurement
+set it, if any.}
+\label{tab:audit}
+\input{tables/T5_threshold_audit}
+\end{table}
+
+Fifteen constants were audited (Table~\ref{tab:audit}). The classification separates
+\emph{adjudicators of fact} (which must be measured), \emph{acceptance criteria} (which must be
+fixed in advance and may be conventional), and \emph{labelled conventions} (which must be shown
+non-load-bearing). \textbf{Two remain guessed and live} --- \texttt{FLAG\_K} and
+\texttt{INSTABILITY\_THRESHOLD} --- and are named here rather than left for a reader to find. The
+audit was run once, mechanically, and found a third guessed constant \emph{before} it misfired: an
+inline cut of 0.75 gating a shape verdict in the frozen record. Sweeping it cost nothing, because
+the per-fact matrix had been persisted rather than summarised.
+
+\paragraph{One measured constant is knowingly left biased, and the reasoning is the point.} The
+cliff noise band was re-derived over every measured arm and widened at the top (\S\ref{sec:kstar}
+note; M5 \S5.149.2). The flag's constant is the band's \emph{lower} edge, so it fires more readily
+than the measured spread warrants --- and it stays. \textbf{The bias runs in the safe direction}: an
+over-eager flag summons scrutiny and cannot suppress it, which is the inverse of the failure this
+audit exists to catch. Every firing it has produced was resolved by \emph{replication} rather than
+by the threshold, so no verdict rests on where the line sits, and re-deriving it would re-adjudicate
+every within-noise call in the track to change no conclusion. \emph{An audit that only ever tightens
+constants is not an audit; the decision to leave one alone has to be as recorded as the decision to
+move one.}
+
+\subsection{Figure scripts are instruments, and one of ours was wrong}
+\label{sec:figinstrument}
+
+Every gate, evaluator and threshold in this study was audited. \textbf{The scripts that draw the
+figures were not}, and the omission is the same species as the rest of this section: a component in
+the path from measurement to claim, trusted because it looked like presentation rather than
+inference.
+
+The frontier figure (Figure~\ref{fig:frontier}) claimed a per-$N$ dense series and did not have one.
+It plotted \texttt{best\_bits\_per\_param\_any\_arm} --- a \emph{maximum over arms} --- at every $N$
+on the 1M row, and the 10M row at that same maximum \textbf{multiplied by a hard-coded 0.35 that
+appears in no artifact}. Both rows were flat by construction, which is exactly what a reader would
+have taken as the finding. Nothing errored, the values were loaded from a real artifact, and the
+figure was self-consistent.
+
+\textbf{The measurements were never missing.} The dense runner prints bits per parameter on every
+pooled probe line, and always had; the series existed in the logs the whole time and the figure
+manufactured a substitute for it. Figure~\ref{fig:frontier} now reads that series, per arm and per
+seed, through the same loader every other dense figure uses.
+
+\paragraph{The structural fix, in two parts.} Numbers reach figures only through
+\texttt{\_artifacts.py}, which pairs each value with an artifact path and a record section; and
+\texttt{verify\_claims.py} re-derives the body's quoted numbers from the run artifacts on demand and
+exits non-zero on disagreement. A transcription with no check is a hand-entered number in a
+different file, so the transcribed inputs carry assertions that fail the build --- the seven
+refinements are re-checked against every $\alpha$ the ledger states outright, and the fork exhibit's
+derived denominator against the count its erratum states.
+
+\paragraph{The provenance ledger was itself caught by that script.} Six statistics in the record ---
+two $\sigma$, two $P$, a seed spread and a noise-band edge --- were quoted from three-seed arms
+beside $K^*$ values that later replication had re-derived at five and ten seeds, and the band's upper
+edge had never been recomputed once wider arms existed. \textbf{The document that adjudicates every
+other number in the track had no instrument pointed at it}, and acquired one only when the paper
+forced a mechanical re-check. The corrections are appended to the ledger rather than edited into it
+(M5 \S5.149), because a provenance record that silently updates is not one.
+
+\subsection{What the seed sweeps do and do not establish}
+
+The FKA sweep varies \emph{store fitting and evaluation sampling}; the dense sweep varies
+\emph{model initialisation and training}. Both measure run-to-run spread at a fixed configuration on
+the same statistic, and they are not the same operation. This is stated as content: the comparison
+in \S\ref{sec:comparison} is of \emph{magnitudes}, which survives the mismatch, and no mechanism is
+claimed on either side. Building an FKA training-variance experiment would settle it; none exists.
+
+\subsection{What we refuse to say}
+\label{sec:refuse}
+
+\begin{table}[t]\centering\small
+\caption{The not-quoted table. Each row is a claim the record could be read to support and that we
+decline to make, with the reason.}
+\label{tab:notquoted}
+\input{tables/T6_not_quoted}
+\end{table}
+
+Table~\ref{tab:notquoted} is the paper's negative space, and it is load-bearing. A study that
+reports only what it found, and never what it declined to conclude, gives a reader no way to tell
+disciplined restraint from an absence of curiosity.

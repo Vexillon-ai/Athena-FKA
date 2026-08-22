@@ -1,0 +1,65 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Capacity scaling.} The ${\sim}2$ bits-per-parameter result for dense transformers
+(Allen-Zhu \& Li, arXiv:2404.05405) is the study this paper engages most closely, and the engagement is a \emph{reconciliation rather than a
+contradiction} (\S\ref{sec:reconc}). We adopt its recipe, its embedding-share constraint, and its
+exposure regime, and we account for the remaining difference with two measured factors. Where we
+differ is on \emph{what the ceiling measures}: that regime sits below an addressing wall its
+protocol does not probe, because key count and value entropy move together in those corpora and
+separately in ours.
+A more recent estimate of ${\sim}3.6$ bits per parameter (Morris et al., arXiv:2505.24832) is not a
+competing value for the same quantity --- it is obtained by training on uniformly random bitstrings,
+where generalisation is impossible by construction, and the authors report it as GPT-family
+\emph{model capacity}, total storage under an information-theoretic definition rather than factual
+knowledge a probe can extract --- so the ceiling engaged in \S\ref{sec:reconc} remains the
+extractable-knowledge one, and the reconciliation arithmetic is unaffected by the 3.6 figure.
+
+\paragraph{Memory-augmented and sparse architectures.} Product-key memories and mixture-of-experts
+layers add parameters that are addressed rather than superposed. Theorem~\ref{thm:sep} bears
+directly on the product-key family: additively separable scoring cannot represent multiplicative
+binding, which is why our separable key path scores 0.0\%, and why we decline to cite product-key
+scaling results in support of an architecture whose keys are separable.
+
+\paragraph{Retrieval-augmented models.} RETRO (Borgeaud et al., arXiv:2112.04426) and $k$NN-LM
+(Khandelwal et al., arXiv:1911.00172) place knowledge outside the weights entirely. They are the natural baseline family for a follow-up under matched accounting; this study
+does not run them, and says so.
+
+\paragraph{Factored and externalised knowledge at scale.} Three external lines separate knowledge
+storage from the computation that uses it, at scales this study does not reach. \emph{Engram}
+(Cheng et al., arXiv:2601.07372, January 2026; reference implementation released under Apache~2.0)
+adds a lookup module to a mixture-of-experts backbone on the premise that ``language modeling
+entails two qualitatively different sub-tasks: compositional reasoning and knowledge retrieval'',
+with the Transformer's current handling of the second described as ``an expensive runtime
+reconstruction of a static lookup table''; the module modernises $N$-gram embedding for ``$O(1)$
+lookup'' and is scaled to 27B parameters. That is the factoring premise of \S\ref{sec:arch} reached
+from production scale rather than from measurement discipline, and it is \emph{prior} to this work:
+its first public version predates this programme's first commit by roughly six months. What it does
+not do is what this paper is for --- it reports no bits-per-parameter accounting under a frozen
+storage definition, prices no addressing cost in bits, and measures no key-discrimination limit for
+a dense baseline. \emph{LMLM} (Zhao et al., arXiv:2505.15962) is the closest external prior to the
+fact firewall (\S\ref{sec:method}): its pre-training ``strategically masks externally retrieved
+factual values from the training loss, thereby teaching the model to perform targeted lookups rather
+than relying on memorization in model weights'', which is our loss mask's instrument applied to
+pre-training rather than to a reasoning kernel over a measured substrate, and it belongs with RETRO
+and $k$NN-LM above. \emph{Hierarchical parametric memories} (Pouransari et al., arXiv:2510.02375)
+pair a small anchor model with large memory banks for long-tail knowledge at trillion-token scale.
+\textbf{No comparison against any of the three is offered in either direction}: none has been run
+against FKA under matched accounting, agreement on an architecture is not evidence for anybody's
+numbers, and the statements above are category statements about what each system \emph{is} and what
+it \emph{measures}.
+
+\paragraph{Associative memory.} Modern Hopfield networks and vector-symbolic architectures supply
+the binding algebra our router had to \emph{learn} rather than assume. The oracle $e \odot r$
+assumption was retired precisely because it was doing work the learned system had not earned.
+
+\paragraph{Knowledge editing.} ROME (Meng et al., arXiv:2202.05262) and MEMIT (Meng et al.,
+arXiv:2210.07229) target the locality property we measure directly as
+edit locality (0.00e+00 at the operating point). A matched comparison against them is registered and
+unrun.
+
+\paragraph{Superposition.} The interference-limited view of dense storage predicts smooth
+degradation. Our per-fact margin trajectories are sharp in the typical case --- median 5.5$\times$
+the uniform-slide reference, with smooth decay excluded at 0.9\% under a derived criterion --- which
+is evidence for attractor-like storage, reported with the threshold sensitivity that qualifies it
+(\S\ref{sec:fka}).

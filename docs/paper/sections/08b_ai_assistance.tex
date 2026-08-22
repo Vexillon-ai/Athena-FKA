@@ -1,0 +1,53 @@
+\section{Statement on AI Assistance}
+\label{sec:ai}
+
+This study was produced through sustained interaction with a large language model, and the division
+of labour was substantial enough that describing it is a provenance obligation rather than a
+courtesy. A paper that declines to quote numbers it cannot address (\S\ref{sec:threats}) cannot omit
+the provenance of its own production.
+
+\subsection*{Division of labour}
+
+\begin{center}\small
+\begin{tabular}{@{}p{5.6cm}p{7.0cm}@{}}
+\toprule
+\textbf{Author} & \textbf{Model} \\
+\midrule
+Research direction, priorities, and the decision at every branch point & Implementation of the
+corpus generator, architecture, evaluators, and experiment drivers \\
+The paper's argument architecture, abstract, and introduction & Execution of all runs; parsing and
+reporting of all results \\
+Ratification or rejection of every registered design, threshold, and verdict & Drafting of the
+pre-registrations, mis-specification clauses, and branch sets \\
+Judgement calls on scope, what to claim, and what to decline & Detection and diagnosis of the
+instrument defects catalogued in \S\ref{sec:threats} \\
+Responsibility for every claim in this paper & Drafting of \S2--\S10 and the appendices, and the
+figure and table pipeline \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{Responsibility and verifiability}
+
+The author is responsible for the entire content of this paper, including every part drafted by the
+model. The model is not an author: authorship requires standing behind a claim, answering for an
+error, and responding to challenge, and a model can do none of these.
+
+\textbf{The results do not rest on trusting either party.} Every number resolves to a persisted
+artifact produced by committed code; every figure and table is emitted by a script that reads only
+those artifacts, and the resolution can be re-run in full
+(Appendix~\ref{app:repro}). Provenance-based reporting is agnostic about who wrote the script, which
+is the property that makes the citation-by-address rule load-bearing rather than decorative.
+
+\subsection*{A limitation this creates}
+
+The instrument-failure taxonomy in \S\ref{sec:threats} is not an abstract catalogue. Every species in
+it was committed during this work and the corresponding guard was built in response --- including
+the pull toward accepting a flattering result, the threshold that adjudicated verdicts without ever
+having been measured, and the option sets that failed to contain the outcome
+(Appendix~\ref{app:prereg}).
+
+\scope{The taxonomy is therefore \emph{empirically grounded in an AI-assisted workflow}. Whether the
+same species arise at the same rates in human-only research is untested here, and the frequencies we
+report should not be read as general. We claim the failure modes are real and the detectors work,
+not that this is the distribution of mistakes research makes in general.}

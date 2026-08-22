@@ -1,0 +1,61 @@
+\section{Reproduction Guide}
+\label{app:repro}
+
+\paragraph{Environment.} Python 3.11 with PyTorch under ROCm on a consumer APU. The GPU stack is
+pinned in \texttt{requirements-rocm.txt} and is not re-resolved, because NumPy does not guarantee
+\texttt{Generator} stream stability and a bump can change what a seed generates. One GPU job runs at
+a time, enforced by a lock file; two compute contexts abort the process natively.
+
+\paragraph{Determinism, and its limit.} Seeding is applied \emph{before construction}, not before
+training, so initialisation is covered. Store fits are \textbf{not} bit-exactly reproducible: the
+chunked Lloyd update uses an atomic \texttt{index\_add\_}, so any exact-equality claim over a
+re-fitted store requires a pinned serialised artifact rather than a re-run with the same seed.
+Comparisons against re-fitted stores are tolerance-based by convention.
+
+\paragraph{Fingerprints to check.} Every experiment records \texttt{corpus.fingerprint()}; dense runs
+additionally record \texttt{surface\_fingerprint()}. The 1M syllable arms in this paper share world
+hash \texttt{cae75bbcfd08cdc1} and surface hash \texttt{32cd73aedd62} across three separate runs,
+which is how those arms were shown comparable after the stream module was edited between them.
+
+% Keep the heading and all five commands on one page: the list was breaking after the fourth item
+% and orphaning the build command onto a page of its own.
+\Needspace*{15\baselineskip}
+\paragraph{Checkpoint coverage, stated with its gaps.} Every dense ladder arm retains at least one
+final checkpoint --- \textbf{16 of 16 arms} --- and \textbf{71 of 78 arm-seeds}. The seven missing
+are 1M/24{,}000 (3 of 5), 10M/16{,}000 (1 of 4) and 10M/24{,}000 (3 of 5); no cliff-bracket arm is
+affected. Checkpoints carry weights, model and train config, and RNG state, but \emph{not} the
+corpus configuration, so a re-score reconstructs the world from the launch script --- which is
+checkable rather than trusted, because every run log records both the world fingerprint and the
+surface hash for its arm.
+
+\textbf{No re-score was needed for anything in this paper.} The per-$N$ bits-per-parameter series
+Figure~\ref{fig:frontier} plots was already in the run logs: the dense runner prints it on every
+pooled probe line. The gap above is recorded because it prices a future purchase, not because it
+blocked one.
+
+\paragraph{Regenerating the paper.} Figures and tables read only persisted artifacts.
+
+% A fixed-width table cannot hyphenate \texttt{}, so the long build command overflowed the block by
+% 90pt. A list puts each command on its own line, where it is not width-constrained.
+\begin{description}\small
+\item[resolve every number with its address]\mbox{}\\
+  \texttt{python docs/paper/figures/resolve\_slots.py}
+\item[figures F1--F8]\mbox{}\\
+  \texttt{python docs/paper/figures/make\_figures.py}
+\item[tables T1--T7]\mbox{}\\
+  \texttt{python docs/paper/figures/make\_tables.py}
+\item[re-verify every quoted number against the run artifacts]\mbox{}\\
+  \texttt{python docs/paper/figures/verify\_claims.py}
+\item[render pages for visual review]\mbox{}\\
+  \texttt{python docs/paper/figures/render\_pages.py}
+\item[build]\mbox{}\\
+  \texttt{tectonic -X compile docs/paper/factored\_knowledge\_architecture\_paper.tex}
+\end{description}
+
+\medskip
+\noindent \textbf{No figure or table contains a hand-entered number.} A script that types a value
+instead of loading one is the defect \texttt{\_artifacts.py} exists to make impossible.
+
+\paragraph{Test tiers.} \texttt{make smoke} is CPU-only and runs in CI; \texttt{pytest -m gpu} runs
+on-box against the real device and is excluded from CI. Every bug that reached a real run has a
+regression test at the tier that could have caught it.

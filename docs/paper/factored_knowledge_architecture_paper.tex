@@ -1,0 +1,84 @@
+% Addressing Is Not Free — paper assembly.
+%
+% CITATION-BY-ADDRESS RULE: every number in prose carries an inline comment giving its artifact
+% path and decision-record section. A number without an address does not ship.
+% Figures come from docs/paper/figures/make_figures.py, tables from make_tables.py; both read
+% ONLY persisted artifacts. Nothing in this file is hand-entered data.
+%
+% NeurIPS ships a style file we do not vendor here; this preamble reproduces the single-column
+% 10pt layout with the same margins so the draft reads at submission width.
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=1.25in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{longtable}   % Appendix E's table is taller than a page and must break across pages.
+\usepackage{needspace}   % Appendix F's command list must not orphan its last item onto a new page.
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=1.4em}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+
+% Scope limits travel with the findings they scope (standing rule).
+\newcommand{\scope}[1]{\smallskip\noindent\textit{Scope.} #1\smallskip}
+% The four non-licenses appear wherever the reconciliation is cited.
+\newcommand{\nonlicense}[1]{\noindent\textcolor{black!70}{\small #1}}
+
+\title{\bf Addressing Is Not Free:\\ Factored Knowledge Storage and the\\
+       Key-Discrimination Limit of Dense Models\\[0.35em]
+       \large\normalfont\itshape A pre-registered measurement study}
+% Author block sits under the title/subtitle, above the abstract.
+%
+% NOTE 1 — double-blind. NeurIPS review is anonymous: replace this whole block with
+%   \author{Anonymous Author(s)\\ \normalsize Paper under double-blind review}
+% for submission, and restore it for camera-ready. The affiliation is therefore not visible to
+% reviewers and can be revised any time before the camera-ready deadline.
+%
+% NOTE 2 — affiliation. "Independent Researcher" is the accurate line today and is standard in ML
+% venues. It is deliberately not a company name: an affiliation is read as who stands behind the
+% work, and this paper declines to assert anything a reader cannot check (see the not-quoted table,
+% Section 7.4). Revisit at camera-ready if a registered entity exists by then.
+\author{Tarek El Diab\\[0.2em]
+  \normalsize Independent Researcher\\[0.1em]
+  \normalsize\texttt{tarek\_eldiab@outlook.com}}
+\date{}
+
+\begin{document}
+\maketitle
+
+% ---------------------------------------------------------------------------------------------
+% ABSTRACT and INTRODUCTION are AUTHORED IN THE DESIGN ROOM. Placeholders only.
+% ---------------------------------------------------------------------------------------------
+\input{sections/00_abstract}
+\input{sections/01_introduction}
+
+\input{sections/02_architecture}
+\input{sections/03_methodology}
+\input{sections/04_fka_results}
+\input{sections/05_dense_baseline}
+\input{sections/06_comparison}
+\input{sections/07_threats}
+\input{sections/08_limitations}
+\input{sections/08b_ai_assistance}
+\input{sections/09_related_work}
+\input{sections/10_conclusion}
+
+\appendix
+\input{sections/A_conventions}
+\input{sections/B_decision_records}
+\input{sections/C_provenance_ledger}
+\input{sections/D_corpus_spec}
+\input{sections/E_preregistrations}
+\input{sections/F_reproduction}
+
+\end{document}

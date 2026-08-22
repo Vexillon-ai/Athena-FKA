@@ -1,0 +1,241 @@
+{
+  "label": "rescore",
+  "checkpoint": "experiments/2026-08-02_m1-interface-50M/checkpoint_dim64.pt",
+  "device": "cuda",
+  "seconds": 13.761988800019026,
+  "corpus_fingerprint": "c9da3dbfa0fe96b90c31553185260f034e44b3a52aaed8bd5bb32ebff2990a96",
+  "config": {
+    "checkpoint": "experiments/2026-08-02_m1-interface-50M/checkpoint_dim64.pt",
+    "n_entities": 2000,
+    "warm_steps": 0,
+    "a0_steps": 1500,
+    "joint_steps": 0,
+    "batch_size": 32,
+    "lr": 0.003,
+    "query_lr_scale": 0.1,
+    "temp": 0.05,
+    "comp_dim": 128,
+    "mode": "bilinear",
+    "eval_every": 500,
+    "n_eval": 400,
+    "n_train_harvest": 1200,
+    "alt_block": 250,
+    "seed": 0,
+    "device": "auto",
+    "force_gpu_lock": false,
+    "label": "rescore",
+    "out": "experiments/2026-08-02_m2-fork-a-joint/rescore_unseen.json",
+    "checkpoint_dir": null,
+    "load_router": "experiments/2026-08-02_m2-fork-a-joint/router_joint.pt",
+    "load_query_head": "experiments/2026-08-02_m2-fork-a-joint/query_head_joint.pt",
+    "smoke": false
+  },
+  "kernel_params": 52412544,
+  "key_params": 1305152,
+  "instrument_gates": {
+    "learned_stack": true,
+    "router_eval": true
+  },
+  "stage1_warm": [
+    {
+      "per_hop_retrieval": [
+        0.6324999928474426,
+        0.6324999928474426,
+        0.6324999928474426
+      ],
+      "retrieval_accuracy": 0.6324999928474426,
+      "retrieval_accuracy_unseen": 0.19371728599071503,
+      "n_unseen_queries": 191,
+      "n_distinct_targets": 897,
+      "router": {
+        "n_probes": 897,
+        "recall_at_1": 0.6265329122543335,
+        "recall_at_k": 0.6265329122543335,
+        "k": 8,
+        "margins": {
+          "same-entity": {
+            "name": "same-entity",
+            "n": 897,
+            "mean": 0.4312273859977722,
+            "p05": -0.31091374158859253,
+            "min": -0.729584813117981,
+            "fraction_positive": 0.7536231884057971,
+            "contested": true
+          },
+          "same-relation": {
+            "name": "same-relation",
+            "n": 897,
+            "mean": 0.361971378326416,
+            "p05": -0.4149969518184662,
+            "min": -0.6866536140441895,
+            "fraction_positive": 0.6677814938684504,
+            "contested": true
+          },
+          "unrelated": {
+            "name": "unrelated",
+            "n": 897,
+            "mean": 0.40758565068244934,
+            "p05": -0.3671012222766876,
+            "min": -0.6306082010269165,
+            "fraction_positive": 0.6800445930880713,
+            "contested": true
+          }
+        },
+        "worst_binding_margin": -0.729584813117981,
+        "recall_at_1_unseen": 0.13385826349258423,
+        "n_unseen": 127,
+        "passes": false
+      },
+      "worst_binding_margin": -0.729584813117981,
+      "key_spread": {
+        "n_sampled": 2048,
+        "mean_cosine": 0.00041682037408463657,
+        "max_offdiag_cosine": 0.7013601660728455,
+        "effective_rank": 54.3127555847168,
+        "key_dim": 64,
+        "effective_rank_fraction": 0.8486368060112
+      },
+      "separability": {
+        "n_probes": 897,
+        "separability_index": 0.27313268184661865,
+        "reference_recall_at_1": 0.6265329122543335,
+        "relative_index": 0.43594307099344165,
+        "residual_fraction": 0.7439157962799072,
+        "mean_key_cosine": 0.5043248534202576,
+        "n_entities": 2000,
+        "n_relations": 4
+      },
+      "step": 0
+    }
+  ],
+  "stage1_final_loss": null,
+  "history": [],
+  "final": {
+    "per_hop_retrieval": [
+      0.6324999928474426,
+      0.6324999928474426,
+      0.6324999928474426
+    ],
+    "retrieval_accuracy": 0.6324999928474426,
+    "retrieval_accuracy_unseen": 0.19371728599071503,
+    "n_unseen_queries": 191,
+    "n_distinct_targets": 897,
+    "router": {
+      "n_probes": 897,
+      "recall_at_1": 0.6265329122543335,
+      "recall_at_k": 0.6265329122543335,
+      "k": 8,
+      "margins": {
+        "same-entity": {
+          "name": "same-entity",
+          "n": 897,
+          "mean": 0.4312273859977722,
+          "p05": -0.31091374158859253,
+          "min": -0.729584813117981,
+          "fraction_positive": 0.7536231884057971,
+          "contested": true
+        },
+        "same-relation": {
+          "name": "same-relation",
+          "n": 897,
+          "mean": 0.361971378326416,
+          "p05": -0.4149969518184662,
+          "min": -0.6866536140441895,
+          "fraction_positive": 0.6677814938684504,
+          "contested": true
+        },
+        "unrelated": {
+          "name": "unrelated",
+          "n": 897,
+          "mean": 0.40758565068244934,
+          "p05": -0.3671012222766876,
+          "min": -0.6306082010269165,
+          "fraction_positive": 0.6800445930880713,
+          "contested": true
+        }
+      },
+      "worst_binding_margin": -0.729584813117981,
+      "recall_at_1_unseen": 0.13385826349258423,
+      "n_unseen": 127,
+      "passes": false
+    },
+    "worst_binding_margin": -0.729584813117981,
+    "key_spread": {
+      "n_sampled": 2048,
+      "mean_cosine": 0.00041682037408463657,
+      "max_offdiag_cosine": 0.7013601660728455,
+      "effective_rank": 54.3127555847168,
+      "key_dim": 64,
+      "effective_rank_fraction": 0.8486368060112
+    },
+    "separability": {
+      "n_probes": 897,
+      "separability_index": 0.27313268184661865,
+      "reference_recall_at_1": 0.6265329122543335,
+      "relative_index": 0.43594307099344165,
+      "residual_fraction": 0.7439157962799072,
+      "mean_key_cosine": 0.5043248534202576,
+      "n_entities": 2000,
+      "n_relations": 4
+    }
+  },
+  "substitution": {
+    "n": 200,
+    "n_followed_substitute": 181,
+    "n_kept_original": 0,
+    "n_neither": 19,
+    "follow_rate": 0.905,
+    "stick_rate": 0.0,
+    "conditional_follow_rate": null,
+    "max_stick_threshold": 0.05,
+    "passes": true
+  },
+  "e2e_learned_stack": {
+    "n": 400,
+    "n_correct": 255,
+    "accuracy": 0.6375,
+    "n_routing_failures": 145,
+    "n_copy_failures": 0,
+    "n_format_failures": 0,
+    "retrieval_accuracy": 0.6325,
+    "per_hop_retrieval": [
+      0.6325,
+      0.6325,
+      0.6325
+    ]
+  },
+  "e2e_oracle": {
+    "n": 400,
+    "n_correct": 400,
+    "accuracy": 1.0,
+    "n_routing_failures": 0,
+    "n_copy_failures": 0,
+    "n_format_failures": 0,
+    "retrieval_accuracy": 1.0,
+    "per_hop_retrieval": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "gates": {
+    "per_hop_retrieval": {
+      "value": 0.6324999928474426,
+      "threshold": 0.99,
+      "pass": false
+    },
+    "worst_binding_margin": {
+      "value": -0.729584813117981,
+      "threshold": 0.0,
+      "pass": false
+    },
+    "substitution_stick_rate": {
+      "value": 0.0,
+      "threshold": 0.05,
+      "pass": true
+    }
+  },
+  "alternation_from_step": null,
+  "query_head_drift_triggered": false,
+  "verdict": "fail"
+}

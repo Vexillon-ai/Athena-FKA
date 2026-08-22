@@ -1,0 +1,64 @@
+== KnowledgeCorpus(n_entities=20,000, n_facts=60,000, total_bits=256,910)  fingerprint 478e1f6e0e9be8f6
+   surface syllable  world 478e1f6e0e9b  surface-hash 79abeb074b52  14.8 tok/fact  0.2887 bits/token
+   889,914 tokens/epoch, 4.28 bits/fact at N=20,000
+   probe facts: 3,718 QA-heldout / 3,609 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 16.7%)  -> PASS
+
+== exposures=428  23,112 steps (0.38G tokens)
+   step   8,000/23,112 (34.6%)  epoch  149  loss 1.0684  lr 7.95e-04
+   step  16,000/23,112 (69.2%)  epoch  297  loss 1.0219  lr 3.11e-04
+   step  23,112/23,112 (100.0%)  epoch  428  loss 0.9781  lr 1.00e-04
+   qa_heldout   birth_year   n=   518  acc  19.88%  corrected  10.98%  bits          342
+   qa_heldout   birth_city   n=   478  acc  23.64%  corrected  20.17%  bits          511
+   qa_heldout   employer     n=   504  acc  26.19%  corrected  23.81%  bits          660
+   qa_heldout   POOLED       n= 1,500  acc  23.20%  corrected  19.13%  bits/param 0.0645
+   qa_trained   birth_year   n=   520  acc  18.85%  corrected   9.83%  bits          326
+   qa_trained   birth_city   n=   502  acc  22.91%  corrected  19.40%  bits          520
+   qa_trained   employer     n=   478  acc  21.76%  corrected  19.23%  bits          520
+   qa_trained   POOLED       n= 1,500  acc  21.13%  corrected  16.75%  bits/param 0.0583
+   accounting  0.0065 bits/bit int8 (0.0016 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-03_dense-kstar-replicate\1M_K20000_s0\ladder.json
+== KnowledgeCorpus(n_entities=20,000, n_facts=60,000, total_bits=256,910)  fingerprint 478e1f6e0e9be8f6
+   surface syllable  world 478e1f6e0e9b  surface-hash 79abeb074b52  14.8 tok/fact  0.2887 bits/token
+   889,914 tokens/epoch, 4.28 bits/fact at N=20,000
+   probe facts: 3,718 QA-heldout / 3,609 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 16.7%)  -> PASS
+
+== exposures=428  23,112 steps (0.38G tokens)
+   step   8,000/23,112 (34.6%)  epoch  149  loss 1.0672  lr 7.95e-04
+   step  16,000/23,112 (69.2%)  epoch  297  loss 1.0534  lr 3.11e-04
+   step  23,112/23,112 (100.0%)  epoch  428  loss 1.0128  lr 1.00e-04
+   qa_heldout   birth_year   n=   501  acc  17.96%  corrected   8.85%  bits          299
+   qa_heldout   birth_city   n=   502  acc  13.75%  corrected   9.82%  bits          312
+   qa_heldout   employer     n=   497  acc  16.10%  corrected  13.39%  bits          400
+   qa_heldout   POOLED       n= 1,500  acc  15.93%  corrected  10.95%  bits/param 0.0430
+   qa_trained   birth_year   n=   499  acc  18.04%  corrected   8.93%  bits          299
+   qa_trained   birth_city   n=   527  acc  16.32%  corrected  12.52%  bits          389
+   qa_trained   employer     n=   474  acc  17.30%  corrected  14.63%  bits          410
+   qa_trained   POOLED       n= 1,500  acc  17.20%  corrected  12.37%  bits/param 0.0467
+   accounting  0.0037 bits/bit int8 (0.0009 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-03_dense-kstar-replicate\1M_K20000_s1\ladder.json
+== KnowledgeCorpus(n_entities=20,000, n_facts=60,000, total_bits=256,910)  fingerprint 478e1f6e0e9be8f6
+   surface syllable  world 478e1f6e0e9b  surface-hash 79abeb074b52  14.8 tok/fact  0.2887 bits/token
+   889,914 tokens/epoch, 4.28 bits/fact at N=20,000
+   probe facts: 3,718 QA-heldout / 3,609 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 16.7%)  -> PASS
+
+== exposures=428  23,112 steps (0.38G tokens)
+   step   8,000/23,112 (34.6%)  epoch  149  loss 1.0784  lr 7.95e-04
+   step  16,000/23,112 (69.2%)  epoch  297  loss 1.0073  lr 3.11e-04
+   step  23,112/23,112 (100.0%)  epoch  428  loss 0.9748  lr 1.00e-04
+   qa_heldout   birth_year   n=   479  acc  14.20%  corrected   4.66%  bits          226
+   qa_heldout   birth_city   n=   514  acc  11.09%  corrected   7.05%  bits          258
+   qa_heldout   employer     n=   507  acc  14.00%  corrected  11.23%  bits          355
+   qa_heldout   POOLED       n= 1,500  acc  13.07%  corrected   8.10%  bits/param 0.0355
+   qa_trained   birth_year   n=   467  acc  16.06%  corrected   6.73%  bits          249
+   qa_trained   birth_city   n=   560  acc  11.07%  corrected   7.03%  bits          280
+   qa_trained   employer     n=   473  acc  14.80%  corrected  12.05%  bits          350
+   qa_trained   POOLED       n= 1,500  acc  13.80%  corrected   8.80%  bits/param 0.0372
+   accounting  0.0028 bits/bit int8 (0.0007 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-03_dense-kstar-replicate\1M_K20000_s2\ladder.json
+1M K=20,000 THREE-SEED ARM COMPLETE

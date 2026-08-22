@@ -1,0 +1,286 @@
+== KnowledgeCorpus(n_entities=22,000, n_facts=66,000, total_bits=282,601)  fingerprint ddd60cdcd8af1cb3
+   surface bpe  world ddd60cdcd8af  surface-hash e698b0385524  14.7 tok/fact  0.2910 bits/token
+   971,123 tokens/epoch, 4.28 bits/fact at N=22,000
+   probe facts: 3,341 QA-heldout / 3,341 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=390  23,010 steps (0.38G tokens)
+   step   8,000/23,010 (34.8%)  epoch  136  loss 1.0937  lr 7.93e-04
+   step  16,000/23,010 (69.5%)  epoch  272  loss 1.0471  lr 3.07e-04
+   step  23,010/23,010 (100.0%)  epoch  390  loss 0.9957  lr 1.00e-04
+   qa_heldout   birth_year   n=   503  acc  25.65%  corrected  17.38%  bits          429
+   qa_heldout   birth_city   n=   508  acc  24.41%  corrected  20.97%  bits          561
+   qa_heldout   employer     n=   489  acc  19.02%  corrected  16.41%  bits          465
+   qa_heldout   POOLED       n= 1,500  acc  23.07%  corrected  18.30%  bits/param 0.0677
+   qa_trained   birth_year   n=   519  acc  29.29%  corrected  21.43%  bits          505
+   qa_trained   birth_city   n=   499  acc  26.45%  corrected  23.11%  bits          597
+   qa_trained   employer     n=   482  acc  23.03%  corrected  20.55%  bits          555
+   qa_trained   POOLED       n= 1,500  acc  26.33%  corrected  21.69%  bits/param 0.0774
+   accounting  0.0068 bits/bit int8 (0.0017 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K22000_s0\ladder.json
+== KnowledgeCorpus(n_entities=26,000, n_facts=78,000, total_bits=333,983)  fingerprint 971b4bf022064eb6
+   surface bpe  world 971b4bf02206  surface-hash a59cab238ed8  14.7 tok/fact  0.2918 bits/token
+   1,144,735 tokens/epoch, 4.28 bits/fact at N=26,000
+   probe facts: 3,549 QA-heldout / 3,511 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 16.7%)  -> PASS
+
+== exposures=329  22,701 steps (0.37G tokens)
+   step   8,000/22,701 (35.2%)  epoch  116  loss 1.1124  lr 7.88e-04
+   step  16,000/22,701 (70.5%)  epoch  232  loss 1.0904  lr 2.96e-04
+   step  22,701/22,701 (100.0%)  epoch  329  loss 1.0592  lr 1.00e-04
+   qa_heldout   birth_year   n=   500  acc  12.40%  corrected   2.67%  bits          206
+   qa_heldout   birth_city   n=   487  acc  10.88%  corrected   6.83%  bits          240
+   qa_heldout   employer     n=   513  acc   9.16%  corrected   6.23%  bits          235
+   qa_heldout   POOLED       n= 1,500  acc  10.80%  corrected   5.52%  bits/param 0.0373
+   qa_trained   birth_year   n=   535  acc  14.58%  corrected   5.09%  bits          259
+   qa_trained   birth_city   n=   482  acc   7.68%  corrected   3.48%  bits          167
+   qa_trained   employer     n=   483  acc  12.01%  corrected   9.17%  bits          290
+   qa_trained   POOLED       n= 1,500  acc  11.53%  corrected   6.08%  bits/param 0.0396
+   accounting  0.0024 bits/bit int8 (0.0006 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K26000_s0\ladder.json
+== KnowledgeCorpus(n_entities=22,000, n_facts=66,000, total_bits=282,601)  fingerprint ddd60cdcd8af1cb3
+   surface bpe  world ddd60cdcd8af  surface-hash 2437f8aa92a7  14.7 tok/fact  0.2918 bits/token
+   968,597 tokens/epoch, 4.28 bits/fact at N=22,000
+   probe facts: 3,341 QA-heldout / 3,341 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=390  23,010 steps (0.38G tokens)
+   step   8,000/23,010 (34.8%)  epoch  136  loss 1.0888  lr 7.93e-04
+   step  16,000/23,010 (69.5%)  epoch  272  loss 1.0558  lr 3.07e-04
+   step  23,010/23,010 (100.0%)  epoch  390  loss 1.0191  lr 1.00e-04
+   qa_heldout   birth_year   n=   484  acc  19.21%  corrected  10.24%  bits          309
+   qa_heldout   birth_city   n=   523  acc  23.71%  corrected  20.24%  bits          561
+   qa_heldout   employer     n=   493  acc  24.34%  corrected  21.90%  bits          600
+   qa_heldout   POOLED       n= 1,500  acc  22.47%  corrected  18.38%  bits/param 0.0681
+   qa_trained   birth_year   n=   497  acc  16.50%  corrected   7.22%  bits          272
+   qa_trained   birth_city   n=   519  acc  27.17%  corrected  23.86%  bits          638
+   qa_trained   employer     n=   484  acc  25.62%  corrected  23.22%  bits          620
+   qa_trained   POOLED       n= 1,500  acc  23.13%  corrected  19.34%  bits/param 0.0711
+   accounting  0.0069 bits/bit int8 (0.0017 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K22000_s1\ladder.json
+== KnowledgeCorpus(n_entities=26,000, n_facts=78,000, total_bits=333,983)  fingerprint 971b4bf022064eb6
+   surface bpe  world 971b4bf02206  surface-hash a59cab238ed8  14.7 tok/fact  0.2918 bits/token
+   1,144,735 tokens/epoch, 4.28 bits/fact at N=26,000
+   probe facts: 3,549 QA-heldout / 3,511 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 16.7%)  -> PASS
+
+== exposures=329  22,701 steps (0.37G tokens)
+   step   8,000/22,701 (35.2%)  epoch  116  loss 1.1187  lr 7.88e-04
+   step  16,000/22,701 (70.5%)  epoch  232  loss 1.0938  lr 2.96e-04
+   step  22,701/22,701 (100.0%)  epoch  329  loss 1.0529  lr 1.00e-04
+   qa_heldout   birth_year   n=   486  acc  23.25%  corrected  14.72%  bits          375
+   qa_heldout   birth_city   n=   528  acc  15.91%  corrected  12.09%  bits          380
+   qa_heldout   employer     n=   486  acc  16.87%  corrected  14.19%  bits          410
+   qa_heldout   POOLED       n= 1,500  acc  18.60%  corrected  13.54%  bits/param 0.0639
+   qa_trained   birth_year   n=   509  acc  22.00%  corrected  13.34%  bits          372
+   qa_trained   birth_city   n=   518  acc  16.99%  corrected  13.22%  bits          398
+   qa_trained   employer     n=   473  acc  18.82%  corrected  16.20%  bits          445
+   qa_trained   POOLED       n= 1,500  acc  19.27%  corrected  14.35%  bits/param 0.0670
+   accounting  0.0060 bits/bit int8 (0.0015 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K26000_s1\ladder.json
+== KnowledgeCorpus(n_entities=22,000, n_facts=66,000, total_bits=282,601)  fingerprint ddd60cdcd8af1cb3
+   surface bpe  world ddd60cdcd8af  surface-hash 2437f8aa92a7  14.7 tok/fact  0.2918 bits/token
+   968,597 tokens/epoch, 4.28 bits/fact at N=22,000
+   probe facts: 3,341 QA-heldout / 3,341 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=390  23,010 steps (0.38G tokens)
+Unhandled exception caught in c10/util/AbortHandler.h
+00007FFF2A59DC1C00007FFF2A58D300 torch_python.dll!initModule [<unknown file> @ <unknown line number>]
+00007FF8191A218700007FF8191A2170 ucrtbase.dll!terminate [<unknown file> @ <unknown line number>]
+00007FF807DA2A9400007FF807DA2A50 VCRUNTIME140.dll!_FrameUnwindFilter [<unknown file> @ <unknown line number>]
+00007FF807DB1CEC00007FF807DB1730 VCRUNTIME140.dll!memset [<unknown file> @ <unknown line number>]
+00007FF807DAF70F00007FF807DAF670 VCRUNTIME140.dll!_C_specific_handler [<unknown file> @ <unknown line number>]
+00007FF81C02479F00007FF81C024700 ntdll.dll!_chkstk [<unknown file> @ <unknown line number>]
+00007FF81BF05E9700007FF81BF05900 ntdll.dll!RtlLocateExtendedFeature [<unknown file> @ <unknown line number>]
+00007FF81BF4D01100007FF81BF4CDF0 ntdll.dll!RtlRaiseException [<unknown file> @ <unknown line number>]
+00007FF819301ADA00007FF819301A50 KERNELBASE.dll!RaiseException [<unknown file> @ <unknown line number>]
+00007FF807DA6BA700007FF807DA6B10 VCRUNTIME140.dll!CxxThrowException [<unknown file> @ <unknown line number>]
+00007FFF8494259200007FFF84942430 c10_hip.dll!c10::cuda::c10_cuda_check_implementation [<unknown file> @ <unknown line number>]
+00007FFF84942EBC00007FFF84942E60 c10_hip.dll!c10::cuda::SetDevice [<unknown file> @ <unknown line number>]
+00007FFF849389F300007FFF849321D0 c10_hip.dll!c10::cuda::get_fabric_access [<unknown file> @ <unknown line number>]
+00007FFEF47687B500007FFEF47686A0 torch_hip.dll!at::detail::empty_strided_cuda [<unknown file> @ <unknown line number>]
+00007FF807DA1060 <unknown symbol address> VCRUNTIME140.dll!<unknown symbol> [<unknown file> @ <unknown line number>]
+00007FF807DA53EA00007FF807DA2B90 VCRUNTIME140.dll!is_exception_typeof [<unknown file> @ <unknown line number>]
+00007FF807DAFB5000007FF807DAF670 VCRUNTIME140.dll!_C_specific_handler [<unknown file> @ <unknown line number>]
+00007FF807DA45F000007FF807DA2B90 VCRUNTIME140.dll!is_exception_typeof [<unknown file> @ <unknown line number>]
+00007FF807DB048100007FF807DB0410 VCRUNTIME140.dll!_CxxFrameHandler3 [<unknown file> @ <unknown line number>]
+00007FF81C02481F00007FF81C024700 ntdll.dll!_chkstk [<unknown file> @ <unknown line number>]
+00007FF81BF0210300007FF81BF01E80 ntdll.dll!RtlUnwindEx [<unknown file> @ <unknown line number>]
+00007FF807DB001600007FF807DAF670 VCRUNTIME140.dll!_C_specific_handler [<unknown file> @ <unknown line number>]
+00007FF807DA324500007FF807DA2B90 VCRUNTIME140.dll!is_exception_typeof [<unknown file> @ <unknown line number>]
+00007FF807DA366600007FF807DA2B90 VCRUNTIME140.dll!is_exception_typeof [<unknown file> @ <unknown line number>]
+00007FF807DA46EC00007FF807DA2B90 VCRUNTIME140.dll!is_exception_typeof [<unknown file> @ <unknown line number>]
+00007FF807DB048100007FF807DB0410 VCRUNTIME140.dll!_CxxFrameHandler3 [<unknown file> @ <unknown line number>]
+00007FF81C02479F00007FF81C024700 ntdll.dll!_chkstk [<unknown file> @ <unknown line number>]
+00007FF81BF05E9700007FF81BF05900 ntdll.dll!RtlLocateExtendedFeature [<unknown file> @ <unknown line number>]
+00007FF81BF4D01100007FF81BF4CDF0 ntdll.dll!RtlRaiseException [<unknown file> @ <unknown line number>]
+00007FF819301ADA00007FF819301A50 KERNELBASE.dll!RaiseException [<unknown file> @ <unknown line number>]
+00007FF807DA6BA700007FF807DA6B10 VCRUNTIME140.dll!CxxThrowException [<unknown file> @ <unknown line number>]
+00007FFF8494259200007FFF84942430 c10_hip.dll!c10::cuda::c10_cuda_check_implementation [<unknown file> @ <unknown line number>]
+00007FFF8491EC8500007FFF84908E50 c10_hip.dll!c10::FreeCudaMemoryCallbacksRegistry [<unknown file> @ <unknown line number>]
+00007FFF849142AE00007FFF84908E50 c10_hip.dll!c10::FreeCudaMemoryCallbacksRegistry [<unknown file> @ <unknown line number>]
+00007FFF84909E7800007FFF84908E50 c10_hip.dll!c10::FreeCudaMemoryCallbacksRegistry [<unknown file> @ <unknown line number>]
+00007FFF8531ABBF00007FFF8531AB80 c10.dll!c10::StorageImpl::StorageImpl [<unknown file> @ <unknown line number>]
+00007FFEB26F407300007FFEB26F37D0 torch_cpu.dll!at::detail::empty_generic [<unknown file> @ <unknown line number>]
+00007FFEB26F4A0500007FFEB26F4920 torch_cpu.dll!at::detail::empty_strided_generic [<unknown file> @ <unknown line number>]
+00007FFEF476874B00007FFEF47686A0 torch_hip.dll!at::detail::empty_strided_cuda [<unknown file> @ <unknown line number>]
+00007FFEF476886300007FFEF47687D0 torch_hip.dll!at::detail::empty_strided_cuda [<unknown file> @ <unknown line number>]
+00007FFEF3DC5FB100007FFEF3DC5F40 torch_hip.dll!at::native::empty_strided_cuda [<unknown file> @ <unknown line number>]
+00007FFEF4B4D7C000007FFEF4B4D5A0 torch_hip.dll!at::cuda::empty_strided [<unknown file> @ <unknown line number>]
+00007FFEF4CD15AE00007FFEF4C97780 torch_hip.dll!at::cuda::_fused_adagrad_ [<unknown file> @ <unknown line number>]
+00007FFEB3AE3BE900007FFEB3AE3810 torch_cpu.dll!at::_ops::empty_strided::redispatch [<unknown file> @ <unknown line number>]
+00007FFEB3AE392400007FFEB3AE3810 torch_cpu.dll!at::_ops::empty_strided::redispatch [<unknown file> @ <unknown line number>]
+00007FFEB3FBC66100007FFEB3FAE330 torch_cpu.dll!at::_ops::_foobar_out::redispatch [<unknown file> @ <unknown line number>]
+00007FFEB3AE212400007FFEB3AE1F50 torch_cpu.dll!at::_ops::empty_strided::call [<unknown file> @ <unknown line number>]
+00007FFEB2FC9C0E00007FFEB2FC97F0 torch_cpu.dll!at::native::to [<unknown file> @ <unknown line number>]
+00007FFEB2FC8E0400007FFEB2FC8170 torch_cpu.dll!at::native::_to_copy [<unknown file> @ <unknown line number>]
+00007FFEB40FF56300007FFEB40FF200 torch_cpu.dll!at::compositeexplicitautograd::_fused_moving_avg_obs_fq_helper_outf [<unknown file> @ <unknown line number>]
+00007FFEB37138EE00007FFEB37137F0 torch_cpu.dll!at::_ops::_to_copy::redispatch [<unknown file> @ <unknown line number>]
+00007FFEB3FDB02200007FFEB3FAE330 torch_cpu.dll!at::_ops::_foobar_out::redispatch [<unknown file> @ <unknown line number>]
+00007FFEB37138EE00007FFEB37137F0 torch_cpu.dll!at::_ops::_to_copy::redispatch [<unknown file> @ <unknown line number>]
+00007FFEB612729D00007FFEB6063600 torch_cpu.dll!torch::autograd::impl::JitDecompRegisterer::JitDecompRegisterer [<unknown file> @ <unknown line number>]
+00007FFEB37126D300007FFEB3712510 torch_cpu.dll!at::_ops::_to_copy::call [<unknown file> @ <unknown line number>]
+00007FFEB2FC992E00007FFEB2FC97F0 torch_cpu.dll!at::native::to [<unknown file> @ <unknown line number>]
+00007FFEB436227E00007FFEB4362000 torch_cpu.dll!at::compositeimplicitautograd::_autocast_to_full_precision [<unknown file> @ <unknown line number>]
+00007FFEB386F22C00007FFEB386F050 torch_cpu.dll!at::_ops::to_dtype_layout::call [<unknown file> @ <unknown line number>]
+00007FFEB267810800007FFEB2677FE0 torch_cpu.dll!at::Tensor::to [<unknown file> @ <unknown line number>]
+00007FFF2A1CFA8600007FFF2A1B5190 torch_python.dll!THPPointer<PyCodeObject>::THPPointer<PyCodeObject> [<unknown file> @ <unknown line number>]
+00007FFF2A0D79A200007FFF2A0C6A30 torch_python.dll!torch::PythonArgs::pyobject [<unknown file> @ <unknown line number>]
+00007FFF57BEF8FE00007FFF57BEE70C python311.dll!Py_HashDouble [<unknown file> @ <unknown line number>]
+00007FFF57C0C13B00007FFF57C0BB50 python311.dll!PyObject_Vectorcall [<unknown file> @ <unknown line number>]
+00007FFF57C0D42300007FFF57C0CC20 python311.dll!PyEval_EvalFrameDefault [<unknown file> @ <unknown line number>]
+
+ARM 22000 seed 2 FAILED — aborted, no completion marker
+== KnowledgeCorpus(n_entities=22,000, n_facts=66,000, total_bits=282,601)  fingerprint ddd60cdcd8af1cb3
+   surface bpe  world ddd60cdcd8af  surface-hash 2437f8aa92a7  14.7 tok/fact  0.2918 bits/token
+   968,597 tokens/epoch, 4.28 bits/fact at N=22,000
+   probe facts: 3,341 QA-heldout / 3,341 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+!! removing a stale GPU lock from pid 37512
+
+== exposures=390  23,010 steps (0.38G tokens)
+   step   8,000/23,010 (34.8%)  epoch  136  loss 1.0964  lr 7.93e-04
+   step  16,000/23,010 (69.5%)  epoch  272  loss 1.0529  lr 3.07e-04
+   step  23,010/23,010 (100.0%)  epoch  390  loss 1.0270  lr 1.00e-04
+   qa_heldout   birth_year   n=   481  acc  26.82%  corrected  18.69%  bits          429
+   qa_heldout   birth_city   n=   526  acc  18.44%  corrected  14.73%  bits          439
+   qa_heldout   employer     n=   493  acc  13.59%  corrected  10.80%  bits          335
+   qa_heldout   POOLED       n= 1,500  acc  19.53%  corrected  14.21%  bits/param 0.0557
+   qa_trained   birth_year   n=   493  acc  30.02%  corrected  22.24%  bits          492
+   qa_trained   birth_city   n=   521  acc  19.19%  corrected  15.52%  bits          452
+   qa_trained   employer     n=   486  acc  14.40%  corrected  11.64%  bits          350
+   qa_trained   POOLED       n= 1,500  acc  21.20%  corrected  15.77%  bits/param 0.0601
+   accounting  0.0053 bits/bit int8 (0.0013 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K22000_s2\ladder.json
+== KnowledgeCorpus(n_entities=26,000, n_facts=78,000, total_bits=333,983)  fingerprint 971b4bf022064eb6
+   surface bpe  world 971b4bf02206  surface-hash a59cab238ed8  14.7 tok/fact  0.2918 bits/token
+   1,144,735 tokens/epoch, 4.28 bits/fact at N=26,000
+   probe facts: 3,549 QA-heldout / 3,511 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 16.7%)  -> PASS
+
+== exposures=329  22,701 steps (0.37G tokens)
+   step   8,000/22,701 (35.2%)  epoch  116  loss 1.1086  lr 7.88e-04
+   step  16,000/22,701 (70.5%)  epoch  232  loss 1.0904  lr 2.96e-04
+   step  22,701/22,701 (100.0%)  epoch  329  loss 1.0626  lr 1.00e-04
+   qa_heldout   birth_year   n=   460  acc  24.35%  corrected  15.94%  bits          372
+   qa_heldout   birth_city   n=   535  acc   9.91%  corrected   5.81%  bits          240
+   qa_heldout   employer     n=   505  acc   7.72%  corrected   4.75%  bits          195
+   qa_heldout   POOLED       n= 1,500  acc  13.60%  corrected   7.79%  bits/param 0.0439
+   qa_trained   birth_year   n=   490  acc  27.55%  corrected  19.50%  bits          448
+   qa_trained   birth_city   n=   537  acc  11.92%  corrected   7.91%  bits          290
+   qa_trained   employer     n=   473  acc   8.03%  corrected   5.07%  bits          190
+   qa_trained   POOLED       n= 1,500  acc  15.80%  corrected   9.80%  bits/param 0.0510
+   accounting  0.0034 bits/bit int8 (0.0009 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K26000_s2\ladder.json
+== KnowledgeCorpus(n_entities=22,000, n_facts=66,000, total_bits=282,601)  fingerprint ddd60cdcd8af1cb3
+   surface bpe  world ddd60cdcd8af  surface-hash 2437f8aa92a7  14.7 tok/fact  0.2918 bits/token
+   968,597 tokens/epoch, 4.28 bits/fact at N=22,000
+   probe facts: 3,341 QA-heldout / 3,341 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=390  23,010 steps (0.38G tokens)
+   step   8,000/23,010 (34.8%)  epoch  136  loss 1.0960  lr 7.93e-04
+   step  16,000/23,010 (69.5%)  epoch  272  loss 1.0521  lr 3.07e-04
+   step  23,010/23,010 (100.0%)  epoch  390  loss 1.0263  lr 1.00e-04
+   qa_heldout   birth_year   n=   483  acc  19.88%  corrected  10.97%  bits          319
+   qa_heldout   birth_city   n=   514  acc  21.40%  corrected  17.83%  bits          498
+   qa_heldout   employer     n=   503  acc  14.12%  corrected  11.34%  bits          355
+   qa_heldout   POOLED       n= 1,500  acc  18.47%  corrected  13.59%  bits/param 0.0542
+   qa_trained   birth_year   n=   496  acc  17.54%  corrected   8.38%  bits          289
+   qa_trained   birth_city   n=   506  acc  21.15%  corrected  17.56%  bits          484
+   qa_trained   employer     n=   498  acc  16.47%  corrected  13.77%  bits          410
+   qa_trained   POOLED       n= 1,500  acc  18.40%  corrected  13.74%  bits/param 0.0549
+   accounting  0.0051 bits/bit int8 (0.0013 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K22000_s3\ladder.json
+== KnowledgeCorpus(n_entities=26,000, n_facts=78,000, total_bits=333,983)  fingerprint 971b4bf022064eb6
+   surface bpe  world 971b4bf02206  surface-hash a59cab238ed8  14.7 tok/fact  0.2918 bits/token
+   1,144,735 tokens/epoch, 4.28 bits/fact at N=26,000
+   probe facts: 3,549 QA-heldout / 3,511 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 16.7%)  -> PASS
+
+== exposures=329  22,701 steps (0.37G tokens)
+   step   8,000/22,701 (35.2%)  epoch  116  loss 1.1219  lr 7.88e-04
+   step  16,000/22,701 (70.5%)  epoch  232  loss 1.0913  lr 2.96e-04
+   step  22,701/22,701 (100.0%)  epoch  329  loss 1.0591  lr 1.00e-04
+   qa_heldout   birth_year   n=   459  acc  17.43%  corrected   8.25%  bits          266
+   qa_heldout   birth_city   n=   515  acc  15.34%  corrected  11.49%  bits          357
+   qa_heldout   employer     n=   526  acc  13.12%  corrected  10.32%  bits          345
+   qa_heldout   POOLED       n= 1,500  acc  15.20%  corrected  10.25%  bits/param 0.0526
+   qa_trained   birth_year   n=   498  acc  20.68%  corrected  11.87%  bits          342
+   qa_trained   birth_city   n=   497  acc  15.09%  corrected  11.23%  bits          339
+   qa_trained   employer     n=   505  acc  16.04%  corrected  13.33%  bits          405
+   qa_trained   POOLED       n= 1,500  acc  17.27%  corrected  12.22%  bits/param 0.0596
+   accounting  0.0045 bits/bit int8 (0.0011 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K26000_s3\ladder.json
+== KnowledgeCorpus(n_entities=22,000, n_facts=66,000, total_bits=282,601)  fingerprint ddd60cdcd8af1cb3
+   surface bpe  world ddd60cdcd8af  surface-hash 2437f8aa92a7  14.7 tok/fact  0.2918 bits/token
+   968,597 tokens/epoch, 4.28 bits/fact at N=22,000
+   probe facts: 3,341 QA-heldout / 3,341 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=390  23,010 steps (0.38G tokens)
+   step   8,000/23,010 (34.8%)  epoch  136  loss 1.0985  lr 7.93e-04
+   step  16,000/23,010 (69.5%)  epoch  272  loss 1.0336  lr 3.07e-04
+   step  23,010/23,010 (100.0%)  epoch  390  loss 1.0048  lr 1.00e-04
+   qa_heldout   birth_year   n=   481  acc  22.45%  corrected  13.84%  bits          359
+   qa_heldout   birth_city   n=   513  acc  21.25%  corrected  17.67%  bits          493
+   qa_heldout   employer     n=   506  acc  22.53%  corrected  20.03%  bits          570
+   qa_heldout   POOLED       n= 1,500  acc  22.07%  corrected  17.65%  bits/param 0.0658
+   qa_trained   birth_year   n=   495  acc  24.24%  corrected  15.82%  bits          399
+   qa_trained   birth_city   n=   505  acc  22.18%  corrected  18.64%  bits          507
+   qa_trained   employer     n=   500  acc  21.60%  corrected  19.07%  bits          540
+   qa_trained   POOLED       n= 1,500  acc  22.67%  corrected  18.09%  bits/param 0.0671
+   accounting  0.0066 bits/bit int8 (0.0016 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K22000_s4\ladder.json
+== KnowledgeCorpus(n_entities=26,000, n_facts=78,000, total_bits=333,983)  fingerprint 971b4bf022064eb6
+   surface bpe  world 971b4bf02206  surface-hash a59cab238ed8  14.7 tok/fact  0.2918 bits/token
+   1,144,735 tokens/epoch, 4.28 bits/fact at N=26,000
+   probe facts: 3,549 QA-heldout / 3,511 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 16.7%)  -> PASS
+
+== exposures=329  22,701 steps (0.37G tokens)
+   step   8,000/22,701 (35.2%)  epoch  116  loss 1.1172  lr 7.88e-04
+   step  16,000/22,701 (70.5%)  epoch  232  loss 1.0831  lr 2.96e-04
+   step  22,701/22,701 (100.0%)  epoch  329  loss 1.0521  lr 1.00e-04
+   qa_heldout   birth_year   n=   486  acc  24.07%  corrected  15.64%  bits          389
+   qa_heldout   birth_city   n=   503  acc   9.54%  corrected   5.43%  bits          217
+   qa_heldout   employer     n=   511  acc  11.74%  corrected   8.89%  bits          300
+   qa_heldout   POOLED       n= 1,500  acc  15.00%  corrected   9.36%  bits/param 0.0496
+   qa_trained   birth_year   n=   495  acc  23.64%  corrected  15.15%  bits          389
+   qa_trained   birth_city   n=   507  acc  14.99%  corrected  11.13%  bits          344
+   qa_trained   employer     n=   498  acc  12.65%  corrected   9.83%  bits          315
+   qa_trained   POOLED       n= 1,500  acc  17.07%  corrected  11.65%  bits/param 0.0575
+   accounting  0.0041 bits/bit int8 (0.0010 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K26000_s4\ladder.json
+BPE K-STAR BRACKET COMPLETE

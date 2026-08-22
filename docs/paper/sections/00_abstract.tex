@@ -1,0 +1,54 @@
+% AUTHORED IN THE DESIGN ROOM — transcribed from docs/paper/paper_outline_and_abstract.md.
+% The .tex previously held a placeholder while the authored text lived only in the outline;
+% it is integrated here so the paper ships with its abstract.
+%
+% THREE RESOLUTIONS applied under the conventions the design room named. Each was a
+% "reported, not corrected" item; none survives to the push.
+%
+%  (a) ADDRESSABILITY carries depth-class and load, per §4.1's table (T2). Was:
+%      "99.9% addressability on entities never seen during training" — one phrase spanning
+%      two statistics at two loads. Now the 2M headline and the never-supervised split are
+%      quoted separately, each with its N.
+%        2M headline 99.9%                        [M3 §24.5]
+%        N=2,000 never-supervised 99.8% pooled,
+%          99.9% direct / 99.6% composed          [m3-gonogo/gonogo.json]
+%
+%  (b) REHABILITATION COUNT is the length of §5.1's enumerated list: four items, three
+%      chosen and one forced. "Four" was already correct here and is now matched at §5.1,
+%      §1 and Appendix C rather than contradicted by them.
+%
+%  (c) EDIT LOCALITY carries its measured configuration, per the N-annotation rule. Was
+%      "exactly zero edit interference" unqualified; the measurement is at N=2,000.
+%
+% Everything else is verbatim. Numbers verify through resolve_slots.py.
+\begin{abstract}
+\noindent
+Dense language models store factual knowledge superposed in their weights, paying an addressing cost
+that is real but invisible: no line item in any capacity account says what it costs to \emph{find} a
+fact. We present a pre-registered measurement study of that cost from both sides of an architectural
+divide.
+
+On one side, we build a Factored Knowledge Architecture (FKA): a small reasoning kernel,
+content-computed compositional keys, and a factorized substrate storing values as pointers into
+shared structure. Under an accounting frozen before any measurement --- every bit required at
+inference, amortized where shared --- FKA stores \textbf{3.15} bits per parameter (3.51 marginal) at
+2 million entities and 8 million facts, with \textbf{99.9\%} addressability at that operating point
+and \textbf{99.8\%} retrieval on entities never seen during training at $N = 2{,}000$
+(99.9\% direct, 99.6\% composed), exactly zero edit interference measured at $N = 2{,}000$, and zero
+seed variance at its operating point. Its addressing cost is explicit:
+$2.38 \cdot \log_2 N$ bits per entity, priced and bounded.
+
+On the other side, we measure a dense transformer baseline rehabilitated four times to fight at full
+strength --- literature-matched recipe, corrected data pipeline, fair tokenization, honest lexicon
+accounting. It stores at most \textbf{0.298} bits per parameter at any scale we ran, an order of
+magnitude below FKA's measured point, because it collapses on \emph{key discrimination} at under
+$0.19\times$ of its bit capacity. Discriminable keys grow as $P^{0.224}$ $[0.185, 0.291]$ across a
+measured decade, and the transition is run-stochastic: identically trained seeds differ by 60+ points
+in recall at indistinguishable loss. The apparent contradiction with published ${\sim}2$ bits/param
+results dissolves under two measured factors --- key amortization ($2.0\times$) and tokenization
+surface ($1.17\times$) --- which over-cover the observed $\mathbf{1.89\times}$ gap. Dense capacity
+claims, we conclude, are claims about regimes below an addressing wall that scaling does not remove;
+a two-point extrapolation of that wall to 2M keys spans \textbf{162 orders of magnitude}, and we
+decline to make it. Every reported number carries its bracket, width, and provenance; every threshold
+that adjudicated a verdict carries the measurement that set it.
+\end{abstract}

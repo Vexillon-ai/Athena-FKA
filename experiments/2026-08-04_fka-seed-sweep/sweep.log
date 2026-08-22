@@ -1,0 +1,70 @@
+seed 0    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 0    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 5.42e-07
+seed 0    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.46e-01
+seed 0    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.25e-01
+seed 0    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.59e-01
+seed 0    stages=4 K=256 r=0         NEVER-SUP 99.8%  sup 100.0%  all 99.9%   recon_err 4.91e-01
+seed 0    stages=2 K=64 r=0          NEVER-SUP 37.9%  sup 18.2%  all 28.5%   recon_err 8.49e-01
+seed 1    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 1    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.70e-07
+seed 1    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.42e-01
+seed 1    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.19e-01
+seed 1    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.53e-01
+seed 1    stages=4 K=256 r=0         NEVER-SUP 100.0%  sup 99.7%  all 99.8%   recon_err 4.85e-01
+seed 1    stages=2 K=64 r=0          NEVER-SUP 38.1%  sup 18.5%  all 28.7%   recon_err 8.49e-01
+seed 2    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 2    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 5.45e-07
+seed 2    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.42e-01
+seed 2    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.18e-01
+seed 2    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.53e-01
+seed 2    stages=4 K=256 r=0         NEVER-SUP 100.0%  sup 99.5%  all 99.8%   recon_err 4.84e-01
+seed 2    stages=2 K=64 r=0          NEVER-SUP 41.6%  sup 18.0%  all 30.3%   recon_err 8.49e-01
+seed 3    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 3    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.79e-07
+seed 3    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.43e-01
+seed 3    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.18e-01
+seed 3    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 99.8%  all 99.9%   recon_err 4.52e-01
+seed 3    stages=4 K=256 r=0         NEVER-SUP 100.0%  sup 99.5%  all 99.8%   recon_err 4.83e-01
+seed 3    stages=2 K=64 r=0          NEVER-SUP 41.6%  sup 19.9%  all 31.2%   recon_err 8.48e-01
+seed 4    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 4    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 5.13e-07
+seed 4    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.41e-01
+seed 4    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.19e-01
+seed 4    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.53e-01
+seed 4    stages=4 K=256 r=0         NEVER-SUP 100.0%  sup 99.8%  all 99.9%   recon_err 4.85e-01
+seed 4    stages=2 K=64 r=0          NEVER-SUP 36.5%  sup 14.0%  all 25.8%   recon_err 8.49e-01
+seed 5    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 5    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 5.29e-07
+seed 5    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.37e-01
+seed 5    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.14e-01
+seed 5    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.48e-01
+seed 5    stages=4 K=256 r=0         NEVER-SUP 100.0%  sup 99.8%  all 99.9%   recon_err 4.79e-01
+seed 5    stages=2 K=64 r=0          NEVER-SUP 40.3%  sup 25.3%  all 33.2%   recon_err 8.49e-01
+seed 6    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 6    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 5.76e-07
+seed 6    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.37e-01
+seed 6    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.17e-01
+seed 6    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.50e-01
+seed 6    stages=4 K=256 r=0         NEVER-SUP 100.0%  sup 99.8%  all 99.9%   recon_err 4.81e-01
+seed 6    stages=2 K=64 r=0          NEVER-SUP 43.6%  sup 19.8%  all 32.2%   recon_err 8.49e-01
+seed 7    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 7    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 5.32e-07
+seed 7    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.39e-01
+seed 7    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.17e-01
+seed 7    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.51e-01
+seed 7    stages=4 K=256 r=0         NEVER-SUP 99.5%  sup 99.0%  all 99.2%   recon_err 4.82e-01
+seed 7    stages=2 K=64 r=0          NEVER-SUP 36.5%  sup 17.1%  all 27.3%   recon_err 8.49e-01
+seed 8    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 8    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 5.02e-07
+seed 8    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.39e-01
+seed 8    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.14e-01
+seed 8    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.50e-01
+seed 8    stages=4 K=256 r=0         NEVER-SUP 99.0%  sup 99.7%  all 99.3%   recon_err 4.80e-01
+seed 8    stages=2 K=64 r=0          NEVER-SUP 39.8%  sup 20.3%  all 30.5%   recon_err 8.49e-01
+seed 9    IdentityStore              NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 0.00e+00
+seed 9    S1 lightest                NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 5.56e-07
+seed 9    stages=4 K=256 r=32        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 3.41e-01
+seed 9    stages=4 K=256 r=16        NEVER-SUP 100.0%  sup 100.0%  all 100.0%   recon_err 4.19e-01
+seed 9    stages=4 K=256 r=8         NEVER-SUP 100.0%  sup 99.8%  all 99.9%   recon_err 4.54e-01
+seed 9    stages=4 K=256 r=0         NEVER-SUP 100.0%  sup 99.5%  all 99.8%   recon_err 4.86e-01
+seed 9    stages=2 K=64 r=0          NEVER-SUP 46.5%  sup 21.2%  all 34.4%   recon_err 8.48e-01

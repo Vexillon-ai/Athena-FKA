@@ -1,0 +1,119 @@
+\section{Pre-registrations, Scored}
+\label{app:prereg}
+
+Every pre-registration in the dense track, with the commit that fixed it and the outcome scored
+against what it actually said. \textbf{Partials and misses are listed with the same prominence as
+hits}, because a registry that reports only its successes measures nothing.
+
+% A 19-row tabular is taller than a page: LaTeX cannot break it, so it overflowed the text block
+% by 304pt, left page 22 nearly blank, and overprinted the page number. longtable breaks properly
+% and repeats the header on each page.
+{\footnotesize
+\setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}
+\begin{longtable}{@{}p{0.9cm}p{1.7cm}p{8.4cm}p{2.3cm}@{}}
+\toprule
+\S & commit & what was registered, and what happened & score \\
+\midrule
+\endfirsthead
+\toprule
+\S & commit & what was registered, and what happened & score \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+5.50 & \texttt{cabc2fe} & Cliff criterion frozen blind to 10M; the threshold level claimed
+non-load-bearing. Confirmed: $\pm15\%$ across 10--30\%, re-confirmed on every later bracket. & HIT \\
+
+5.51 & \texttt{cabc2fe} & Four scaling envelopes (linear / $\sqrt{P}$ / $\log P$ / flat). Measured
+$\alpha = 0.224$ lies \emph{between} $\log P$ and $\sqrt{P}$; \textbf{no envelope was hit}. & MISS \\
+
+5.53 & \texttt{cabc2fe} & Reconciliation predicted \emph{before} any 10M measurement: amortisation
+plus surface would carry the gap, with graceful saturation as sub-$K^*$ behaviour. Both carriers
+measured; gap closed. & HIT \\
+
+5.55 & \texttt{f99d352} & Coarse-outcome $\to$ reconciliation map. Endpoints right (flat maximal,
+super-linear resolving); the \emph{interior ordering} of linear and $\sqrt{P}$ was inverted and
+corrected in the same filing. & PARTIAL \\
+
+5.56 & \texttt{f99d352} & Exposure-starvation discriminator for the 288{,}000 arm. Registered with
+its route; the arm never decided a verdict. & NOT FIRED \\
+
+5.57 & \texttt{f99d352} & Name-space saturation discriminator ($77.9\%$ full at 288{,}000). Built
+(\texttt{-{}-name-units}) and never needed. & NOT FIRED \\
+
+5.61 & \texttt{619127a} & \textbf{Trainability gate} at $\ge 30\%$, fixed before the bracket. Fired
+\emph{red} at 4.70\% (voiding five arms) and \emph{green} at 93.27\% after the stream fix, threshold
+untouched between them. & HIT \\
+
+5.62 & \texttt{0fff8d4} & Signature discriminator: ordering memorisation predicted to show as a
+subject-token collapse on a fresh permutation, with the 1M model insensitive. Measured $+7.41$ nats
+against $+0.12$. & HIT \\
+
+5.62 & \texttt{0fff8d4} & \textbf{Forward prediction from an entropy floor}: remove the repeated
+orderings and loss should \emph{rise} to ${\sim}0.89$ nats/token while accuracy rises. Measured
+0.8565 and 0.9046, recall $4.70 \to 93.27\%$. & HIT \\
+
+5.69 & \texttt{ab1de79} & Re-anchor prediction: $K^*$ right of 19{,}752, in 20{,}000--25{,}000,
+params/key falling toward ${\sim}41$. Measured 21{,}451 / 43.9. Region and direction right; the point
+estimate was 5.5\% high and the stated error \emph{direction} inverted. & PARTIAL \\
+
+5.89 & \texttt{b8aed72} & $K^*$ redefined as a $P$-crossing, quantile and seed counts fixed blind to
+the data they would be applied to. Applied unchanged thereafter. & HIT \\
+
+5.99 & \texttt{81d32b3} & $\alpha$ drafted in interval form with the substitution rule fixed, blind to
+the 1M seeds. Predicted worst case $\alpha \le 0.291$; the measured bracket lands on \textbf{0.291}
+to three decimals. & HIT \\
+
+5.104 & \texttt{f351cb0} & Three outcomes pre-worded for the 18{,}000 arm. The ALIVE reading was
+correct \emph{and} the branch set was \textbf{non-disjoint} --- $P = 2/3$ satisfied two labels at
+once. & PARTIAL \\
+
+5.109 & \texttt{0e1e8cb} & BPE control described as isolating scheme ``cleanly''. Withdrawn in the
+same appendix: it varies scheme \emph{and} name length, two variables rather than one. & PARTIAL \\
+
+5.111 & \texttt{f351cb0} & Third-surface trigger with bands over $T \in [1, \infty)$. Measured
+$T = 0.55$--$0.64$ --- outside every registered band, in a region whose nearest label read
+\emph{falsely}. \textbf{Undercoverage.} & MISS \\
+
+5.119 & \texttt{193657d} & Power check run \emph{before} wording the arm-indexed test: critical
+$|r| = 0.878$ at $n=5$ makes the planned test a formality. Correctly predicted its own
+non-resolution. & HIT \\
+
+5.124 & \texttt{193657d} & Fisher-$z$ contrast registered with its critical value before the seeds
+landed; predicted the contrast would not resolve at $n = 10$. Measured $|\Delta z| = 0.119$ against
+1.048. & HIT \\
+
+5.135 & \texttt{164a5ad} & Asymmetric inference: a large $T$ extends toward the reference's regime, a
+small $T$ says nothing about the unreachable region. Not exercised --- $T$ fell outside the
+registered range entirely. & NOT FIRED \\
+
+5.140 & \texttt{164a5ad} & $K^*_{\text{BPE}}$ branches \textbf{tiled over $(0,\infty)$}, including a
+pre-named refutation row ($K^* \le 16{,}971$ would mean the accuracy advantage did not become keys).
+Refutation available; measured 19{,}900. & HIT \\
+\end{longtable}
+}
+
+\subsection*{Score}
+
+\begin{center}\small
+\begin{tabular}{@{}lcl@{}}
+\toprule
+outcome & count & note \\
+\midrule
+HIT & 10 & including two forward predictions and one gate that fired in both directions \\
+PARTIAL & 4 & each corrected in the filing that reported it \\
+MISS & 2 & both \emph{envelope} failures: the registered options did not cover the outcome \\
+NOT FIRED & 3 & registered, built where needed, never required \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\noindent \textbf{The two misses share a shape and it is the more useful finding.} Neither was a
+wrong prediction; both were \emph{option sets that failed to contain the answer} --- four scaling
+envelopes that bracketed the measured exponent without matching it, and three $T$ bands that
+enumerated $[1,\infty)$ when the attainable range was $(0,\infty)$. A prediction that misses teaches
+you about the system. \textbf{An option set that misses teaches you about your imagination}, and it
+is the failure mode a pre-registration is least able to protect against, because every individual
+branch reads sensibly and only the \emph{set} is defective.

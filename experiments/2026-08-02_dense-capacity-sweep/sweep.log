@@ -1,0 +1,73 @@
+== KnowledgeCorpus(n_entities=500, n_facts=2,000, total_bits=21,283)  fingerprint 4c7430b2de5c2865
+   103,539 tokens/epoch, 10.64 bits/fact at N=500
+   probe facts: 538 QA-heldout / 525 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 12.5%)  -> PASS
+
+== exposures=1024  6,144 steps (0.10G tokens)
+   step   2,000/6,144 (32.6%)  epoch  334  loss 0.2596  lr 8.11e-04
+   step   4,000/6,144 (65.1%)  epoch  667  loss 0.1359  lr 3.59e-04
+   step   6,000/6,144 (97.7%)  epoch 1000  loss 0.0662  lr 1.01e-04
+   step   6,144/6,144 (100.0%)  epoch 1024  loss 0.0664  lr 1.00e-04
+   qa_heldout   birth_year   n=   144  acc  81.25%  corrected  81.06%  bits          777
+   qa_heldout   birth_city   n=   138  acc  57.97%  corrected  57.89%  bits          720
+   qa_heldout   employer     n=   128  acc  76.56%  corrected  76.54%  bits          980
+   qa_heldout   works_with   n=   128  acc  47.66%  corrected  47.66%  bits        1,032
+   qa_heldout   POOLED       n=   538  acc  66.17%  corrected  62.12%  bits/param 0.0153
+   qa_trained   birth_year   n=   144  acc  95.83%  corrected  95.79%  bits          917
+   qa_trained   birth_city   n=   116  acc  90.52%  corrected  90.50%  bits          945
+   qa_trained   employer     n=   126  acc  95.24%  corrected  95.23%  bits        1,200
+   qa_trained   works_with   n=   139  acc  88.49%  corrected  88.49%  bits        2,082
+   qa_trained   POOLED       n=   525  acc  92.57%  corrected  91.62%  bits/param 0.0226
+   accounting  0.0019 bits/bit int8 (0.0005 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-02_dense-capacity-sweep\N500\ladder.json
+== KnowledgeCorpus(n_entities=2,000, n_facts=8,000, total_bits=93,147)  fingerprint b0fed2a1dde8cfd4
+   416,903 tokens/epoch, 11.64 bits/fact at N=2,000
+   probe facts: 969 QA-heldout / 947 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 8.3%)  -> PASS
+
+== exposures=1024  25,600 steps (0.42G tokens)
+   step   5,000/25,600 (19.5%)  epoch  200  loss 0.3316  lr 9.23e-04
+   step  10,000/25,600 (39.1%)  epoch  400  loss 0.2606  lr 7.08e-04
+   step  15,000/25,600 (58.6%)  epoch  600  loss 0.2398  lr 4.34e-04
+   step  20,000/25,600 (78.1%)  epoch  800  loss 0.2162  lr 2.04e-04
+   step  25,000/25,600 (97.7%)  epoch 1000  loss 0.1855  lr 1.01e-04
+   step  25,600/25,600 (100.0%)  epoch 1024  loss 0.1836  lr 1.00e-04
+   qa_heldout   birth_year   n=   240  acc  92.92%  corrected  92.85%  bits        1,482
+   qa_heldout   birth_city   n=   242  acc  71.90%  corrected  71.85%  bits        1,566
+   qa_heldout   employer     n=   238  acc  86.13%  corrected  86.12%  bits        2,050
+   qa_heldout   works_with   n=   249  acc  71.49%  corrected  71.49%  bits        3,725
+   qa_heldout   POOLED       n=   969  acc  80.50%  corrected  77.62%  bits/param 0.0838
+   qa_trained   birth_year   n=   260  acc  98.85%  corrected  98.83%  bits        1,707
+   qa_trained   birth_city   n=   230  acc  89.57%  corrected  89.54%  bits        1,854
+   qa_trained   employer     n=   231  acc  93.94%  corrected  93.93%  bits        2,170
+   qa_trained   works_with   n=   226  acc  87.61%  corrected  87.61%  bits        4,144
+   qa_trained   POOLED       n=   947  acc  92.71%  corrected  91.12%  bits/param 0.0983
+   accounting  0.0105 bits/bit int8 (0.0026 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-02_dense-capacity-sweep\N2000\ladder.json
+== KnowledgeCorpus(n_entities=8,000, n_facts=32,000, total_bits=404,599)  fingerprint 11d6032ff051b66a
+   1,664,495 tokens/epoch, 12.64 bits/fact at N=8,000
+   probe facts: 1,611 QA-heldout / 1,632 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 12.5%)  -> PASS
+
+== exposures=1024  103,424 steps (1.69G tokens)
+   step  20,000/103,424 (19.3%)  epoch  199  loss 0.4150  lr 9.21e-04
+   step  40,000/103,424 (38.7%)  epoch  397  loss 0.3733  lr 7.08e-04
+   step  60,000/103,424 (58.0%)  epoch  595  loss 0.3349  lr 4.39e-04
+   step  80,000/103,424 (77.4%)  epoch  793  loss 0.3121  lr 2.10e-04
+   step 100,000/103,424 (96.7%)  epoch  991  loss 0.2990  lr 1.02e-04
+   step 103,424/103,424 (100.0%)  epoch 1024  loss 0.2969  lr 1.00e-04
+   qa_heldout   birth_year   n=   409  acc  88.51%  corrected  88.39%  bits        2,405
+   qa_heldout   birth_city   n=   370  acc  25.14%  corrected  24.99%  bits          837
+   qa_heldout   employer     n=   358  acc  51.40%  corrected  51.35%  bits        1,840
+   qa_heldout   works_with   n=   363  acc  63.64%  corrected  63.64%  bits        5,759
+   qa_heldout   POOLED       n= 1,500  acc  58.00%  corrected  57.99%  bits/param 0.2720
+   qa_trained   birth_year   n=   366  acc  91.26%  corrected  91.17%  bits        2,219
+   qa_trained   birth_city   n=   371  acc  24.80%  corrected  24.65%  bits          828
+   qa_trained   employer     n=   389  acc  52.19%  corrected  52.14%  bits        2,030
+   qa_trained   works_with   n=   374  acc  75.13%  corrected  75.13%  bits        7,006
+   qa_trained   POOLED       n= 1,500  acc  60.67%  corrected  63.60%  bits/param 0.2982
+   accounting  0.0340 bits/bit int8 (0.0085 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-02_dense-capacity-sweep\N8000\ladder.json

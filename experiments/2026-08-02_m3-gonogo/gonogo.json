@@ -1,0 +1,85 @@
+{
+  "checkpoint": "experiments/2026-08-02_m1-interface-50M/checkpoint_dim64.pt",
+  "device": "cuda",
+  "seconds": 9.181622699950822,
+  "config": {
+    "checkpoint": "experiments/2026-08-02_m1-interface-50M/checkpoint_dim64.pt",
+    "router": "experiments/2026-08-02_m2-fork-c/router_forkc.pt",
+    "query_head": "experiments/2026-08-02_m2-fork-c/query_head_forkc.pt",
+    "n_entities": 2000,
+    "n_eval": 400,
+    "n_one_hop": 600,
+    "seed": 0,
+    "device": "auto",
+    "out": "experiments/2026-08-02_m3-gonogo/gonogo.json"
+  },
+  "corpus": {
+    "n_facts": 8000,
+    "total_bits": 73217.8378930387
+  },
+  "gate_identity": {
+    "never_supervised": 1.0,
+    "by_depth": {
+      "direct": 1.0,
+      "composed": 1.0
+    },
+    "by_relation": {
+      "birth_year": 1.0,
+      "birth_city": 1.0,
+      "employer": 1.0,
+      "works_with": 1.0
+    },
+    "n": 1028
+  },
+  "addressability": {
+    "never_supervised": 0.9980544747081712,
+    "by_depth": {
+      "direct": 0.99875,
+      "composed": 0.9956140350877193
+    },
+    "by_relation": {
+      "birth_year": 1.0,
+      "birth_city": 0.9877300613496932,
+      "employer": 1.0,
+      "works_with": 1.0
+    },
+    "n": 1028
+  },
+  "edit_locality": 0.0,
+  "marginal_bits_per_fact": 19.13250160217285,
+  "marginal_bits_per_bit": 0.47836032772580195,
+  "fixed_params": 1268928,
+  "load_curve": [
+    {
+      "n_facts": 8000,
+      "marginal_bits": 19.181655883789062,
+      "amortised_bits_per_bit": 0.007105163519910401,
+      "verdict": "FAIL"
+    },
+    {
+      "n_facts": 80000,
+      "marginal_bits": 19.15035915374756,
+      "amortised_bits_per_bit": 0.06266797972368421,
+      "verdict": "FAIL"
+    },
+    {
+      "n_facts": 800000,
+      "marginal_bits": 19.15196418762207,
+      "amortised_bits_per_bit": 0.28743316946728054,
+      "verdict": "FAIL"
+    },
+    {
+      "n_facts": 8000000,
+      "marginal_bits": 19.150973320007324,
+      "amortised_bits_per_bit": 0.44820146744110484,
+      "verdict": "PASS BUT UNDER-DELIVERS"
+    }
+  ],
+  "crossing_pass_facts": 1925008.2683751362,
+  "crossing_target_facts": null,
+  "conditions": {
+    "capacity": true,
+    "addressability": true,
+    "edit_locality": true
+  }
+}

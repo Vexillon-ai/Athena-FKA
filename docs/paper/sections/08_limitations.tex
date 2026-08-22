@@ -1,0 +1,65 @@
+\section{Limitations and the Real-Data Question}
+\label{sec:limits}
+
+\paragraph{Synthetic only.} Every number here is measured on a generated corpus whose per-fact
+information content is exact by construction. That is what makes bits-per-parameter a measurement
+rather than an estimate, and it is also the boundary of the claim: \textbf{no result in this paper
+is about natural language, real corpora, or frontier-scale models.}
+
+\paragraph{A minimum-entropy world.} More than 0.5 bits per bit is unreachable in this corpus at any
+$N$, by corpus arithmetic rather than by architecture (Proposition~\ref{prop:entropy}). A richer
+world would move the ceiling; we do not claim to know in which direction the \emph{comparison} would
+move.
+
+\paragraph{No learned write path.} The substrate is populated programmatically from
+$(\text{entity}, \text{relation}) \mapsto \text{value}$. There is no learned mapping from raw text
+into storage --- a component a deployable system would need and this study does not have.
+
+\paragraph{The bridge question, registered verbatim.} The scale result was confirmed over
+\emph{well-spread random codes}; real content is correlated, and correlation is where
+nearest-neighbour shortlists degrade. The corpus's entity codes are random unit vectors by
+construction, so the cross-check validated the \emph{generation path} rather than ``real versus
+random geometry''. What remains untested is \emph{semantically} correlated content, which no
+synthetic corpus supplies:
+
+\begin{quote}
+\textit{Does $f(\mathrm{content})$ still span the address space when content stops being clean?}
+\end{quote}
+
+\noindent This is the successor study's central question. It is a \emph{registered debt}, carried
+since M2, not a gap discovered at write-up.
+
+\paragraph{Sublinearity is scoped to measured $N$.} The $O(\sqrt{N})$ search claim is not confirmed
+--- the measured exponent is ${\sim}0.78$ off a coarse power-of-two grid, a bracket rather than a
+measurement --- and IVF, the only registered candidate for the crowding bill, is priced and unrun.
+
+\subsection*{Priced and not run}
+
+Five measurements were designed, costed, and deliberately not bought. \textbf{None gates a claim in
+this paper}; each would narrow something we currently report as an interval or decline to state.
+Listing them with their prices is the companion to the not-quoted table (\S\ref{sec:threats}): that
+one says what we refuse to conclude, this one says what it would cost to conclude more.
+
+\begin{center}\small
+\begin{tabular}{@{}p{5.4cm}lp{5.6cm}@{}}
+\toprule
+measurement & price & what it would buy \\
+\midrule
+30{,}000-key interior point at 10M & 0.83\,h & \textbf{the only purchase that narrows $\alpha$'s
+upper edge}; more seeds at existing arms cannot move a bracket \\
+$n = 19$ correlation arm at 10M & 7.2\,h & settles the 10M signature question, which $n = 5$ leaves
+underpowered ($p = 0.113$) \\
+BPE consistency arm at 10M & 3.3\,h & a second-size confirmation of the 1.17$\times$ surface factor \\
+held-out-world tokenizer surface & build & raises characters-per-token toward the reference's regime
+without granting corpus-trained merges \\
+fourth surface, one axis fixed & build $+$ arms & separates symbol frequency from name length, the
+suspected unmeasured coordinate \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{The methodology is grounded in one workflow.} The instrument-failure taxonomy
+(\S\ref{sec:threats}) catalogues failures that occurred \emph{in this study}, under an AI-assisted
+workflow described in \S\ref{sec:ai}. We claim the species are real and the detectors work; we do
+\textbf{not} claim the observed frequencies generalise to human-only research, which this study
+cannot test.

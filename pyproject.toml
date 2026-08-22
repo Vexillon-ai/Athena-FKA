@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fka"
+version = "0.0.1"
+description = "Factored Knowledge Architecture — separating reasoning from knowledge storage"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [{ name = "Tarek El Diab" }]
+
+# torch is deliberately NOT listed here: on this machine it comes from AMD's gfx1151 ROCm
+# nightly index, not PyPI, and the exact build is pinned in requirements-rocm.txt
+# (currently torch 2.12.0a0+rocm7.13.0a20260313). These are the library's requirements;
+# requirements-rocm.txt is the environment lock. See README.md "Environment".
+#
+# numpy is loose here but pinned to 2.4.3 in requirements-rocm.txt: NumPy does not guarantee
+# `Generator` bit-stream stability across versions, so the exact version is what keeps a corpus
+# seed reproducible.
+dependencies = [
+    "numpy>=1.26",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-timeout>=2.3",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+fka-corpus = "fka.data.corpus_gen:main"
+fka-capacity = "fka.eval.capacity:main"
+
+[tool.setuptools.packages.find]
+include = ["fka*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers --timeout=120"
+markers = [
+    "slow: excluded from `make smoke`; run with `pytest -m slow`",
+    "gpu: requires a working ROCm/CUDA device",
+    "instrument: evaluator self-tests; in smoke, runnable alone via -m instrument",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+# The package __init__ files re-export lazily (PEP 562): names are imported only under
+# TYPE_CHECKING for type checkers, and resolved at runtime through __getattr__.
+"fka/*/__init__.py" = ["F401"]
+
+

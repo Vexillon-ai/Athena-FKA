@@ -1,0 +1,53 @@
+% Section 1 — Introduction
+% AUTHORED in the design room against the pass-2 body. Integrated VERBATIM.
+% The only editorial changes are cross-references: numeric forward references
+% ("Proposition 3", "Figure 2", "Table 1", "Theorem 2", "Figure 7") are replaced by
+% \ref{} to their labels so they cannot drift from the printed numbering. One of them
+% WAS already adrift — see (c) below.
+%
+% INTEGRATION NOTE — reported, not patched (verify_claims.py §1 block):
+%   (a) "31,686 facts about 31,686 entities" — the corpus carries FOUR facts per entity, so that
+%       arm is 126,744 facts about 31,686 entities. Corpus line, verbatim from the run log:
+%       KnowledgeCorpus(n_entities=31,686, n_facts=126,744, total_bits=1,728,371)
+%       fingerprint c6a90aaed0e7af0b.
+%   (b) "at a load its bit-capacity covers three times over" — the measured load at that arm is
+%       1.44x OVER a 1M model's capacity under the keys-included sizing, and ~0.92x under the
+%       value-entropy-only accounting this paper actually uses (M5 §5.14). Neither reading gives
+%       threefold headroom; "covers three times over" would need a load near 0.33x.
+%       [notes.md §5.2 load table; M5 §5.9]
+%   (c) "Proposition 3" for reachability PRINTS as Proposition 1 — the outline's numbering is not
+%       the printed numbering. Resolved by \ref, so the text now says whatever prints.
+%   (d) "Four rehabilitations" is now the convention throughout: it is the length of §5.1's
+%       enumerated list (three chosen, one forced). §5.1's heading and lead sentence were matched
+%       to it; M5 §5.8.1's "five" counts the surface arc as two items. RESOLVED, not reported.
+
+\section{Introduction}
+
+A dense transformer trained to store 126,744 facts about 31,686 entities --- under the capacity literature's own recipe, at a load its bit capacity just covers --- recalls 0.34\% of them: exactly the score of a model that answers every question with the most common value and knows nothing at all. % artifact: exposure ladder N=31686 arm (load ~0.92x value-entropy accounting); M5 §5.9
+Nothing in the run reports this. The loss is unremarkable, the training is stable, and the model is fluent in the shape of every answer. The failure is invisible in every statistic the run emits, and it is not a failure of capacity: every dense arm that collapsed in this study did so at under $0.19\times$ of its theoretical bit capacity. % §5.147 provenance table
+The binding constraint is the number of distinct \emph{keys} the model can discriminate --- and no line item in any published capacity account prices what a dense model pays to find a fact rather than to hold it.
+
+This paper measures that price from both sides of an architectural divide, under rules fixed before the data existed.
+
+On one side we build a \textbf{Factored Knowledge Architecture} (FKA): a small frozen reasoning kernel, keys computed from content by a learned encoder, and a factorized substrate that stores values as pointers into shared structure (\S\ref{sec:arch}). Its addressing cost is explicit --- $2.38\log_2 N$ bits per entity, measured --- and under an accounting frozen before any capacity number existed (every bit required at inference, amortized where shared, nothing exempt; \S\ref{sec:method}), it stores \textbf{3.15 bits per parameter amortized} (3.51 marginal) at $N = 2$M entities and 8M facts, with 99.9\% addressability at that operating point, 99.8\% retrieval on entities never seen in training at $N = 2{,}000$ (99.9\% direct, 99.6\% composed), edit interference of exactly zero measured at $N = 2{,}000$, and zero seed variance at its operating point (\S\ref{sec:fka}). % M3 §30, §24.5; m3-gonogo/gonogo.json; FKA seed sweep
+The architecture that achieves this is simpler than the one we designed. Its original namesake --- a diffusion-based retriever --- is absent because a theorem eliminates it: a centroid-optimal quantizer leaves conditionally mean-zero residuals that no denoiser can improve (Theorem~\ref{thm:lloyd}). Table~\ref{tab:elim} lists six candidate mechanisms, each removed by a measurement or a proof rather than a preference.
+
+On the other side we measure a dense baseline that we spent more effort strengthening than our own system. Four rehabilitations --- a five-arm recipe audit including the reference's own configuration (the reference throughout is Allen-Zhu \& Li, \emph{Physics of Language Models: Part 3.3, Knowledge Capacity Scaling Laws}, arXiv:2404.05405, the source of the ${\sim}2$ bits-per-parameter result), a data-pipeline correction that raised recall at 10M parameters from 4.70\% to 93.27\%, a tokenization surface bought at a measured $3.8\times$--$26\times$ advantage, and lexicon accounting at the reference's own $\le 10\%$ rule --- precede every number we report against it (\S\ref{sec:dense}). % M5 §§5.9-5.30
+At full strength, the baseline stores at most \textbf{0.298 bits per parameter} at any configuration ever run --- and that is its single most generous reading, a trained-half figure from the capacity sweep, kept as a labelled reference line; the measured 10M ladder itself peaks at 0.075 held-out, and no point beyond the wall exceeds 0.02 (dead-zone arms single-seed; \S\ref{sec:dense}, Figure~\ref{fig:frontier}). % dense runner logs: 96k=0.006 n=1, 288k=0.0194 n=1
+Both figures sit an order of magnitude or more below FKA's measured point and far under the literature's ceiling of 2, because the baseline collapses on key discrimination first. The collapse is not a point but a probability: identically configured training runs at the transition differ by \textbf{72 points of recall at indistinguishable loss}, so we define $K^*_P$ --- the key count at which the probability of a discriminating run crosses 0.5 --- and measure it as $16{,}971$ $[16\text{k},18\text{k}]$ at 1M parameters and $28{,}950$ $[28\text{k},32\text{k}]$ at 10M (\S\ref{sec:kstar}). % refinements.json
+Discriminable keys grow as $P^{0.224}$ $[0.185, 0.291]$ across the measured decade --- a ratio of two measurements, explicitly not a fitted law.
+
+These two results appear to contradict the published finding that dense transformers store $\sim$2 bits per parameter. They do not, and the reconciliation is itself a result (\S\ref{sec:reconc}): the reference regime amortizes each key over twice the facts ($2.0\times$, read from its configuration) and sits on a tokenization surface worth a further $1.17\times$ \emph{measured in the units that matter} --- parameters per discriminable key, not accuracy, which overstates the same factor by $\sim$40\%. Together the carriers cover $2.35\times$ (the product of the unrounded factors; the rounded figures multiply to 2.34), over-covering the observed $1.89\times$ gap. Both literatures are right in their own regimes; the regimes were never the same; and the published ceiling is a statement about corpora that sit \emph{below} an addressing wall that scaling does not remove.
+
+What we decline to claim is part of the contribution. The dense scaling curve admits two functional forms that fit both measured points with zero residual and disagree about $N = 2$M by \textbf{162 orders of magnitude}; we therefore refuse the extrapolation, and the paper's central figure plots each system at the $N$ where it was measured, with the asymmetry stated on its face (\S\ref{sec:comparison}). A table of \emph{not-quoted} numbers (\S\ref{sec:refuse}) lists every quantity this study measured too weakly to assert, and why.
+
+Our contributions:
+\begin{enumerate}
+\item \textbf{Architecture (C1).} Factored storage with content-computed keys reaches 3.15 bits/param amortized at 2M entities with deterministic addressing and zero-cost edits --- \emph{measured on a synthetic, entropy-controlled corpus}, with the mechanism isolated: identity entering as a free embedding row yields 0.0\% never-supervised retrieval; identity entering through content yields 100.0\%, same evaluator, stricter holdout (Figure~\ref{fig:fork}, Proposition~\ref{prop:reach}).
+\item \textbf{The key-discrimination limit (C2).} Dense parametric storage binds on discriminable keys, not bits; the wall is run-stochastic and grows sublinearly ($\alpha \in [0.185, 0.291]$); the capacity literature's regime sits below its own wall, reconciled by two measured factors with four stated non-licenses.
+\item \textbf{Methodology (C3).} The machinery that makes C1 and C2 checkable: accounting and thresholds with provenance, pre-registered branch sets that tile their outcome spaces, statistics that ship with the spread they censor, and a six-species taxonomy of instrument failures --- each with its smell, its detector, and the commit where it bit. Several of this paper's findings are findings \emph{about instruments}, reported at the same rigor as the results they nearly corrupted.
+\end{enumerate}
+
+Everything is measured on a synthetic corpus whose per-fact information content is exact by construction --- which is what makes bits-per-parameter a measurement rather than an estimate, and which bounds what we may claim: nothing here touches natural language, learned ingestion from raw text, or frontier-scale models. Section~\ref{sec:limits} states that boundary precisely and registers the successor question --- whether keys computed from content still span the address space when content stops being clean --- verbatim from the decision record that first posed it.
+
+Every number in this paper carries its bracket, width, and provenance; every threshold that adjudicated a verdict carries the measurement that set it; and every figure is generated by a committed script that reads only persisted artifacts and exits non-zero on disagreement. The reader who wants to check us can: Appendix~\ref{app:repro} maps every claim to its artifact, seed, and commit.

@@ -1,0 +1,113 @@
+\section{Measurement Methodology}
+\label{sec:method}
+
+Everything after this section is earned by what is in it. The methodology is reported at the same
+level of detail as the results because several of the paper's findings are findings \emph{about
+instruments}.
+
+\subsection{The frozen accounting}
+
+Capacity is \emph{knowledge bits stored} divided by \emph{storage bits required}, where storage bits
+are everything \texttt{reconstruct()} and the key path need at inference: pointers and residuals per
+fact at stored width, with codebooks, the relation table and the encoder $f$ amortised. Nothing is
+exempt.
+% M3 §10.5
+Three gaming counterexamples --- free pointers, a hidden dictionary, and a memorising encoder ---
+each have a test that computes what the exemption would have reported, so the accounting's honesty
+is checkable rather than asserted. Gates in the unit: pass $\ge 0.375$, target $> 0.5$, dense
+baseline $\sim 0.25$, which is the exact int8 restatement of 3/4/2 bits per parameter.
+
+\paragraph{Parameter counts on the dense side: used-token width.} Wherever a dense figure divides
+parameters by keys, the numerator follows the reference's own convention --- embeddings are
+\emph{included}, but only at the width the corpus actually uses, unused vocabulary rows excluded.
+The reference counts GPT2-small as 88M rather than 124M on exactly this basis, because its corpus
+touches 3{,}275 of 50{,}256 tokens. Adopting it is what makes a params-per-key comparison against
+that work meaningful; the same convention fixes our vocabulary through their
+$\le 10\%$ embedding-share constraint.
+% M5 §5.29
+
+\subsection{The synthetic corpus as instrument}
+
+Value spaces own their information content: $\mathrm{bits}(v) = -\log_2 P(v)$ under the distribution
+the generator actually samples from. This is what makes bits-per-parameter a measurement rather than
+an estimate, and it has a consequence the study learned the hard way.
+
+\begin{proposition}[Entropy coupling and address-cost cancellation]
+\label{prop:entropy}
+For a relation whose value space \emph{is} the entity set, per-fact entropy grows as $\log_2 N$.
+Address cost grows as $2.38 \log_2 N$ and corpus entropy as $0.25 \log_2 N$, so the two nearly
+cancel and the design's validity horizon moves by eight orders of magnitude.
+\end{proposition}
+
+\noindent A per-fact constant of 9.15 bits, correct at $N = 2{,}000$, was carried into figures at
+$N = 2$M where the corpus in fact carries \textbf{11.66} bits per fact, because \texttt{works\_with}
+names a partner among two million entities.
+% M3 §31
+Correcting it moved the amortised capacity figure from 0.3792 to \textbf{0.3938} bits per bit, with
+the marginal figure at \textbf{0.4387}, and the validity horizon from ${\sim}2.4$M to
+${\sim}8.85 \times 10^{13}$ entities.
+% experiments/2026-08-04_frontier/plot_data.json | M3 §30
+\emph{The correction ran in our favour and is reported with the same prominence as the ones that did
+not} --- which is also why the before and after are now both amortised. Pairing the old
+\emph{amortised} 0.3792 against the new \emph{marginal} 0.4387, as this sentence first did,
+overstates the correction by crossing accounting bases mid-comparison.
+
+\subsection{Pre-registration machinery}
+
+Every experiment's eval design is committed before it runs, stating the holdout level, what the gate
+can and cannot distinguish, a \emph{measured} chance baseline, fixed pass thresholds, a
+non-composing failure argument per probe type, a mis-specification clause, and --- added after it
+voided a five-arm sweep --- a trainability gate whenever the run changes scale or regime.
+
+Two machinery findings are themselves results.
+
+\paragraph{Branch sets must tile the attainable space.} A pre-registration exists to make the
+interpretation of a result independent of the result; branches that \emph{overlap} hand that choice
+back at the moment the answer is known, and branches that \emph{undercover} hand back something
+worse. Both failure modes occurred. Overlap: three outcomes registered for a 3-seed arm at
+$P \le 1/3$, $P \ge 2/3$, and ``seeds straddle'' --- and $P = 2/3$ satisfies two of them.
+% M5 §5.113
+Undercoverage: a surface-comparison ratio $T$ registered over $[1, \infty)$, implicitly assuming the
+shorter surface would win, when the attainable range is $(0, \infty)$; the measured value was
+$0.55$--$0.64$, landing in a band whose registered wording was \emph{flatly false} of what had
+happened.
+% M5 §5.137.1
+Undercoverage is the worse failure: an overlap yields two defensible readings, an uncovered region
+yields one wrong reading with a pre-registration's authority behind it.
+
+\paragraph{Blindness is certified by reproducibility, not by timestamps.} A prediction is credible
+when its derivation re-runs from inputs it names and those inputs are measurements that already
+existed. One prediction here was authored from two named prior artifacts while the run it predicted
+was finishing, so the commit landed after the result; the derivation is checkable and the clock is
+not, and the ordering is disclosed rather than left for a reader to discover.
+% M5 §5.71.0
+
+\paragraph{The paired guards.} An \emph{elevated standard} applies to any finding that favours our
+architecture, and a \emph{tidy-resolution test} to any finding that makes an inconvenient
+discrepancy disappear. Both fired for real. Offered the reading ``their regime was never past its
+cliff,'' which would have dissolved the literature discrepancy, we fixed the threshold in advance
+($K^* \ge 37{,}650$) and measured 21{,}451: struck.
+% M5 §5.71.3
+Offered ``linear scaling, same constant,'' we required the 32{,}000-key arm to be alive and measured
+13.78\%: excluded.
+% M5 §5.75
+
+\subsection{Instruments prove themselves}
+
+A reported statistic ships with a test showing it discriminates, and \emph{every threshold that
+statistic is compared against ships with the measurement that set it}. The second clause was added
+after a guessed noise band --- never produced by any experiment --- adjudicated every
+``within noise'' call in the dense track and turned out to be wrong by 3$\times$ to 26$\times$
+depending on regime.
+% M5 §5.102.2
+
+A test for a fix must be verified \emph{red} on the design that failed, under the conditions that
+produced the defect. A gate whose red case is unreachable is decorative and looks verified, which is
+worse than a missing one: injecting a recorded \texttt{<eos>} defect left a gold stub at 100.0\%
+because greedy generation stopped before the defect could express itself, and only a gate instrument
+that runs the full token budget separates the two behaviours.
+% M5 §4.2
+A gate must also take ground truth from an \emph{independent} path: one that built its expected
+answer through the machinery under test stayed green while a surface mismatch drove a real model to
+0.00\%.
+% M5 §5.41

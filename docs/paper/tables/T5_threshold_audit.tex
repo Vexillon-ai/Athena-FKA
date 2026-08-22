@@ -1,0 +1,17 @@
+\footnotesize
+\begin{tabular}{@{}p{4.6cm}p{2.1cm}p{3.4cm}p{4.3cm}@{}}
+\toprule
+constant & value & provenance class & note \\
+\midrule
+\texttt{NOISE\_SIGMA\_NON\_CLIFF} & 0.046 & \textbf{measured} & replication, M5 \S5.102.2 \\
+\texttt{NOISE\_SIGMA\_CLIFF} & 0.128 & \textbf{measured} & replication, M5 \S5.102.2 \\
+\texttt{kstar.THRESHOLD} & 0.20 & sensitivity-tested & $\pm15\%$ over 10--30\%, M5 \S5.50.2 \\
+\texttt{GATE\_PASS} / \texttt{GATE\_TARGET} & 0.375 / 0.5 & derived & int8 restatement of 3/4 bits/param \\
+\texttt{NOMINAL\_BITS\_PER\_PARAM} & 2.0 & borrowed & the reference's ceiling \\
+\texttt{margin.fraction\_slide\_like} & $2/n_{\text{steps}}$ & derived & twice the uniform reference \\
+\texttt{margin} cliff cut & 0.75 & \textbf{guessed} & \textbf{discharged} by sweep, M5 \S5.126 \\
+\texttt{kstar.FLAG\_K} & 3 & \textbf{guessed, live} & \textbf{owed} \\
+\texttt{INSTABILITY\_THRESHOLD} & 0.25 & \textbf{guessed, live} & \textbf{owed} \\
+Phase 1/2 gate constants & 0.85 / 0.95 / 0.05 & guessed, closed milestones & annotated; future use needs provenance \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,211 @@
+== KnowledgeCorpus(n_entities=16,000, n_facts=48,000, total_bits=205,528)  fingerprint cae75bbcfd08cdc1
+   surface bpe  world cae75bbcfd08  surface-hash bf1a4495d854  14.7 tok/fact  0.2910 bits/token
+   706,375 tokens/epoch, 4.28 bits/fact at N=16,000
+   probe facts: 3,655 QA-heldout / 3,606 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 25.0%)  -> PASS
+
+== exposures=535  23,005 steps (0.38G tokens)
+   step   8,000/23,005 (34.8%)  epoch  187  loss 1.0538  lr 7.93e-04
+   step  16,000/23,005 (69.6%)  epoch  373  loss 0.9311  lr 3.07e-04
+   step  23,005/23,005 (100.0%)  epoch  535  loss 0.9106  lr 1.00e-04
+   qa_heldout   birth_year   n=   519  acc  61.85%  corrected  57.61%  bits        1,066
+   qa_heldout   birth_city   n=   501  acc  64.47%  corrected  62.86%  bits        1,461
+   qa_heldout   employer     n=   480  acc  56.88%  corrected  55.48%  bits        1,365
+   qa_heldout   POOLED       n= 1,500  acc  61.13%  corrected  58.67%  bits/param 0.1322
+   qa_trained   birth_year   n=   523  acc  68.45%  corrected  64.95%  bits        1,189
+   qa_trained   birth_city   n=   466  acc  69.74%  corrected  68.37%  bits        1,470
+   qa_trained   employer     n=   511  acc  58.51%  corrected  57.17%  bits        1,495
+   qa_trained   POOLED       n= 1,500  acc  65.47%  corrected  62.97%  bits/param 0.1408
+   accounting  0.0159 bits/bit int8 (0.0040 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K16000_s0\ladder.json
+== KnowledgeCorpus(n_entities=18,000, n_facts=54,000, total_bits=231,219)  fingerprint 9affb5853ec3ceb7
+   surface bpe  world 9affb5853ec3  surface-hash c110bbd492c2  14.7 tok/fact  0.2910 bits/token
+   794,528 tokens/epoch, 4.28 bits/fact at N=18,000
+   probe facts: 3,307 QA-heldout / 3,305 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=479  22,992 steps (0.38G tokens)
+   step   8,000/22,992 (34.8%)  epoch  167  loss 1.0798  lr 7.93e-04
+   step  16,000/22,992 (69.6%)  epoch  334  loss 0.9883  lr 3.06e-04
+   step  22,992/22,992 (100.0%)  epoch  479  loss 0.9370  lr 1.00e-04
+   qa_heldout   birth_year   n=   502  acc  25.30%  corrected  17.00%  bits          422
+   qa_heldout   birth_city   n=   477  acc  33.96%  corrected  30.96%  bits          733
+   qa_heldout   employer     n=   521  acc  30.13%  corrected  27.88%  bits          785
+   qa_heldout   POOLED       n= 1,500  acc  29.73%  corrected  26.09%  bits/param 0.0736
+   qa_trained   birth_year   n=   507  acc  26.23%  corrected  18.04%  bits          442
+   qa_trained   birth_city   n=   470  acc  32.34%  corrected  29.26%  bits          688
+   qa_trained   employer     n=   523  acc  31.17%  corrected  28.95%  bits          815
+   qa_trained   POOLED       n= 1,500  acc  29.87%  corrected  26.19%  bits/param 0.0739
+   accounting  0.0080 bits/bit int8 (0.0020 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K18000_s0\ladder.json
+== KnowledgeCorpus(n_entities=16,000, n_facts=48,000, total_bits=205,528)  fingerprint cae75bbcfd08cdc1
+   surface bpe  world cae75bbcfd08  surface-hash bf1a4495d854  14.7 tok/fact  0.2910 bits/token
+   706,375 tokens/epoch, 4.28 bits/fact at N=16,000
+   probe facts: 3,655 QA-heldout / 3,606 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 25.0%)  -> PASS
+
+== exposures=535  23,005 steps (0.38G tokens)
+   step   8,000/23,005 (34.8%)  epoch  187  loss 1.0710  lr 7.93e-04
+   step  16,000/23,005 (69.6%)  epoch  373  loss 0.9457  lr 3.07e-04
+   step  23,005/23,005 (100.0%)  epoch  535  loss 0.9166  lr 1.00e-04
+   qa_heldout   birth_year   n=   506  acc  43.48%  corrected  37.20%  bits          731
+   qa_heldout   birth_city   n=   506  acc  61.26%  corrected  59.50%  bits        1,402
+   qa_heldout   employer     n=   488  acc  63.73%  corrected  62.56%  bits        1,555
+   qa_heldout   POOLED       n= 1,500  acc  56.07%  corrected  54.82%  bits/param 0.1249
+   qa_trained   birth_year   n=   502  acc  42.23%  corrected  35.81%  bits          704
+   qa_trained   birth_city   n=   484  acc  65.50%  corrected  63.93%  bits        1,434
+   qa_trained   employer     n=   514  acc  64.98%  corrected  63.85%  bits        1,670
+   qa_trained   POOLED       n= 1,500  acc  57.53%  corrected  56.60%  bits/param 0.1286
+   accounting  0.0149 bits/bit int8 (0.0037 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K16000_s1\ladder.json
+== KnowledgeCorpus(n_entities=18,000, n_facts=54,000, total_bits=231,219)  fingerprint 9affb5853ec3ceb7
+   surface bpe  world 9affb5853ec3  surface-hash c110bbd492c2  14.7 tok/fact  0.2910 bits/token
+   794,528 tokens/epoch, 4.28 bits/fact at N=18,000
+   probe facts: 3,307 QA-heldout / 3,305 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=479  22,992 steps (0.38G tokens)
+   step   8,000/22,992 (34.8%)  epoch  167  loss 1.0827  lr 7.93e-04
+   step  16,000/22,992 (69.6%)  epoch  334  loss 0.9762  lr 3.06e-04
+   step  22,992/22,992 (100.0%)  epoch  479  loss 0.9399  lr 1.00e-04
+   qa_heldout   birth_year   n=   500  acc  49.00%  corrected  43.33%  bits          814
+   qa_heldout   birth_city   n=   515  acc  46.80%  corrected  44.38%  bits        1,090
+   qa_heldout   employer     n=   485  acc  47.63%  corrected  45.94%  bits        1,155
+   qa_heldout   POOLED       n= 1,500  acc  47.80%  corrected  44.70%  bits/param 0.1164
+   qa_trained   birth_year   n=   499  acc  48.10%  corrected  42.33%  bits          797
+   qa_trained   birth_city   n=   497  acc  48.29%  corrected  45.94%  bits        1,086
+   qa_trained   employer     n=   504  acc  49.80%  corrected  48.18%  bits        1,255
+   qa_trained   POOLED       n= 1,500  acc  48.73%  corrected  45.89%  bits/param 0.1192
+   accounting  0.0136 bits/bit int8 (0.0034 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K18000_s1\ladder.json
+== KnowledgeCorpus(n_entities=16,000, n_facts=48,000, total_bits=205,528)  fingerprint cae75bbcfd08cdc1
+   surface bpe  world cae75bbcfd08  surface-hash bf1a4495d854  14.7 tok/fact  0.2910 bits/token
+   706,375 tokens/epoch, 4.28 bits/fact at N=16,000
+   probe facts: 3,655 QA-heldout / 3,606 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 25.0%)  -> PASS
+
+== exposures=535  23,005 steps (0.38G tokens)
+   step   8,000/23,005 (34.8%)  epoch  187  loss 1.0614  lr 7.93e-04
+   step  16,000/23,005 (69.6%)  epoch  373  loss 0.9570  lr 3.07e-04
+   step  23,005/23,005 (100.0%)  epoch  535  loss 0.9123  lr 1.00e-04
+   qa_heldout   birth_year   n=   470  acc  44.04%  corrected  37.83%  bits          688
+   qa_heldout   birth_city   n=   552  acc  38.77%  corrected  35.98%  bits          968
+   qa_heldout   employer     n=   478  acc  37.87%  corrected  35.86%  bits          905
+   qa_heldout   POOLED       n= 1,500  acc  40.13%  corrected  36.38%  bits/param 0.0862
+   qa_trained   birth_year   n=   469  acc  43.71%  corrected  37.46%  bits          681
+   qa_trained   birth_city   n=   522  acc  44.06%  corrected  41.52%  bits        1,040
+   qa_trained   employer     n=   509  acc  38.51%  corrected  36.52%  bits          980
+   qa_trained   POOLED       n= 1,500  acc  42.07%  corrected  38.57%  bits/param 0.0907
+   accounting  0.0099 bits/bit int8 (0.0025 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K16000_s2\ladder.json
+== KnowledgeCorpus(n_entities=18,000, n_facts=54,000, total_bits=231,219)  fingerprint 9affb5853ec3ceb7
+   surface bpe  world 9affb5853ec3  surface-hash c110bbd492c2  14.7 tok/fact  0.2910 bits/token
+   794,528 tokens/epoch, 4.28 bits/fact at N=18,000
+   probe facts: 3,307 QA-heldout / 3,305 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=479  22,992 steps (0.38G tokens)
+   step   8,000/22,992 (34.8%)  epoch  167  loss 1.0856  lr 7.93e-04
+   step  16,000/22,992 (69.6%)  epoch  334  loss 0.9919  lr 3.06e-04
+   step  22,992/22,992 (100.0%)  epoch  479  loss 0.9565  lr 1.00e-04
+   qa_heldout   birth_year   n=   480  acc  24.38%  corrected  15.97%  bits          389
+   qa_heldout   birth_city   n=   549  acc  24.41%  corrected  20.97%  bits          606
+   qa_heldout   employer     n=   471  acc  27.39%  corrected  25.05%  bits          645
+   qa_heldout   POOLED       n= 1,500  acc  25.33%  corrected  21.22%  bits/param 0.0622
+   qa_trained   birth_year   n=   476  acc  26.05%  corrected  17.83%  bits          412
+   qa_trained   birth_city   n=   533  acc  25.52%  corrected  22.13%  bits          615
+   qa_trained   employer     n=   491  acc  28.51%  corrected  26.21%  bits          700
+   qa_trained   POOLED       n= 1,500  acc  26.67%  corrected  22.63%  bits/param 0.0654
+   accounting  0.0065 bits/bit int8 (0.0016 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K18000_s2\ladder.json
+== KnowledgeCorpus(n_entities=16,000, n_facts=48,000, total_bits=205,528)  fingerprint cae75bbcfd08cdc1
+   surface bpe  world cae75bbcfd08  surface-hash bf1a4495d854  14.7 tok/fact  0.2910 bits/token
+   706,375 tokens/epoch, 4.28 bits/fact at N=16,000
+   probe facts: 3,655 QA-heldout / 3,606 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 25.0%)  -> PASS
+
+== exposures=535  23,005 steps (0.38G tokens)
+   step   8,000/23,005 (34.8%)  epoch  187  loss 1.0656  lr 7.93e-04
+   step  16,000/23,005 (69.6%)  epoch  373  loss 0.9482  lr 3.07e-04
+   step  23,005/23,005 (100.0%)  epoch  535  loss 0.9104  lr 1.00e-04
+   qa_heldout   birth_year   n=   472  acc  23.73%  corrected  15.25%  bits          372
+   qa_heldout   birth_city   n=   511  acc  36.40%  corrected  33.51%  bits          841
+   qa_heldout   employer     n=   517  acc  35.59%  corrected  33.51%  bits          920
+   qa_heldout   POOLED       n= 1,500  acc  32.13%  corrected  29.08%  bits/param 0.0716
+   qa_trained   birth_year   n=   492  acc  26.83%  corrected  18.70%  bits          438
+   qa_trained   birth_city   n=   487  acc  34.29%  corrected  31.30%  bits          755
+   qa_trained   employer     n=   521  acc  33.40%  corrected  31.25%  bits          870
+   qa_trained   POOLED       n= 1,500  acc  31.53%  corrected  28.08%  bits/param 0.0695
+   accounting  0.0079 bits/bit int8 (0.0020 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K16000_s3\ladder.json
+== KnowledgeCorpus(n_entities=18,000, n_facts=54,000, total_bits=231,219)  fingerprint 9affb5853ec3ceb7
+   surface bpe  world 9affb5853ec3  surface-hash c110bbd492c2  14.7 tok/fact  0.2910 bits/token
+   794,528 tokens/epoch, 4.28 bits/fact at N=18,000
+   probe facts: 3,307 QA-heldout / 3,305 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=479  22,992 steps (0.38G tokens)
+   step   8,000/22,992 (34.8%)  epoch  167  loss 1.0774  lr 7.93e-04
+   step  16,000/22,992 (69.6%)  epoch  334  loss 0.9722  lr 3.06e-04
+   step  22,992/22,992 (100.0%)  epoch  479  loss 0.9444  lr 1.00e-04
+   qa_heldout   birth_year   n=   478  acc  29.08%  corrected  21.20%  bits          462
+   qa_heldout   birth_city   n=   509  acc  44.60%  corrected  42.08%  bits        1,027
+   qa_heldout   employer     n=   513  acc  38.99%  corrected  37.02%  bits        1,000
+   qa_heldout   POOLED       n= 1,500  acc  37.73%  corrected  34.93%  bits/param 0.0941
+   qa_trained   birth_year   n=   483  acc  29.40%  corrected  21.56%  bits          472
+   qa_trained   birth_city   n=   488  acc  44.88%  corrected  42.37%  bits          991
+   qa_trained   employer     n=   529  acc  37.62%  corrected  35.61%  bits          995
+   qa_trained   POOLED       n= 1,500  acc  37.33%  corrected  34.43%  bits/param 0.0929
+   accounting  0.0107 bits/bit int8 (0.0027 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K18000_s3\ladder.json
+== KnowledgeCorpus(n_entities=16,000, n_facts=48,000, total_bits=205,528)  fingerprint cae75bbcfd08cdc1
+   surface bpe  world cae75bbcfd08  surface-hash bf1a4495d854  14.7 tok/fact  0.2910 bits/token
+   706,375 tokens/epoch, 4.28 bits/fact at N=16,000
+   probe facts: 3,655 QA-heldout / 3,606 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 25.0%)  -> PASS
+
+== exposures=535  23,005 steps (0.38G tokens)
+   step   8,000/23,005 (34.8%)  epoch  187  loss 1.0647  lr 7.93e-04
+   step  16,000/23,005 (69.6%)  epoch  373  loss 0.9199  lr 3.07e-04
+   step  23,005/23,005 (100.0%)  epoch  535  loss 0.8955  lr 1.00e-04
+   qa_heldout   birth_year   n=   496  acc  57.26%  corrected  52.51%  bits          943
+   qa_heldout   birth_city   n=   529  acc  60.49%  corrected  58.70%  bits        1,448
+   qa_heldout   employer     n=   475  acc  54.74%  corrected  53.28%  bits        1,300
+   qa_heldout   POOLED       n= 1,500  acc  57.60%  corrected  55.10%  bits/param 0.1248
+   qa_trained   birth_year   n=   498  acc  66.06%  corrected  62.29%  bits        1,093
+   qa_trained   birth_city   n=   492  acc  58.13%  corrected  56.23%  bits        1,294
+   qa_trained   employer     n=   510  acc  59.61%  corrected  58.30%  bits        1,520
+   qa_trained   POOLED       n= 1,500  acc  61.27%  corrected  58.61%  bits/param 0.1318
+   accounting  0.0149 bits/bit int8 (0.0037 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K16000_s4\ladder.json
+== KnowledgeCorpus(n_entities=18,000, n_facts=54,000, total_bits=231,219)  fingerprint 9affb5853ec3ceb7
+   surface bpe  world 9affb5853ec3  surface-hash c110bbd492c2  14.7 tok/fact  0.2910 bits/token
+   794,528 tokens/epoch, 4.28 bits/fact at N=18,000
+   probe facts: 3,307 QA-heldout / 3,305 QA-trained
+   gate: gold stub 100.0%  wrong-answer stub 0.0% (chance 20.8%)  -> PASS
+
+== exposures=479  22,992 steps (0.38G tokens)
+   step   8,000/22,992 (34.8%)  epoch  167  loss 1.0843  lr 7.93e-04
+   step  16,000/22,992 (69.6%)  epoch  334  loss 0.9532  lr 3.06e-04
+   step  22,992/22,992 (100.0%)  epoch  479  loss 0.9264  lr 1.00e-04
+   qa_heldout   birth_year   n=   494  acc  39.88%  corrected  33.20%  bits          654
+   qa_heldout   birth_city   n=   519  acc  30.83%  corrected  27.68%  bits          724
+   qa_heldout   employer     n=   487  acc  33.06%  corrected  30.90%  bits          805
+   qa_heldout   POOLED       n= 1,500  acc  34.53%  corrected  30.31%  bits/param 0.0830
+   qa_trained   birth_year   n=   499  acc  40.08%  corrected  33.42%  bits          664
+   qa_trained   birth_city   n=   494  acc  35.63%  corrected  32.70%  bits          796
+   qa_trained   employer     n=   507  acc  34.32%  corrected  32.20%  bits          870
+   qa_trained   POOLED       n= 1,500  acc  36.67%  corrected  32.69%  bits/param 0.0885
+   accounting  0.0092 bits/bit int8 (0.0023 fp32)   [pass 0.375, target 0.5, dense 0.25]   FAIL
+
+wrote experiments\2026-08-04_dense-bpe-control\K18000_s4\ladder.json
+BPE 1M CONTROL COMPLETE
